@@ -7,6 +7,7 @@ import pandas as pd
 import logging
 from datetime import datetime
 
+from config import settings
 from data_loader import load_all_data
 from metrics.growth_rate import (
     calculate_growth_rate,
@@ -26,15 +27,15 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = FastAPI(
-    title="Hypeon AI Analytics API",
-    description="Industry-grade API for product growth, sentiment, engagement, and trend metrics",
-    version="1.0.0"
+    title=settings.APP_NAME,
+    description=settings.APP_DESCRIPTION,
+    version=settings.APP_VERSION
 )
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -48,9 +49,9 @@ async def load_data():
     """Load all data at application startup."""
     global dataframes
     try:
-        logger.info("Loading data from Data_hypeon_MVP...")
+        logger.info(f"Loading data from {settings.DATA_BASE_PATH}...")
         # Load real data (use sample_size=None for production, or set a limit for dev)
-        dataframes = load_all_data(sample_size=5000)  # Adjust sample_size as needed
+        dataframes = load_all_data(sample_size=settings.DATA_SAMPLE_SIZE)
         
         if not dataframes:
             logger.warning("No dataframes loaded!")
@@ -74,7 +75,7 @@ async def root():
             "/metrics/sentiment",
             "/metrics/engagement",
             "/metrics/trend",
-            "/metrics/hype",
+            "/hype",
             "/health"
         ]
     }
@@ -102,7 +103,9 @@ async def health_check():
 async def get_growth_rate(
     niche: Optional[str] = Query(None, description="Filter by product niche (required for product-level)"),
     level: Literal['niche', 'product'] = Query('niche', description="Aggregation level: 'niche' or 'product'"),
-    source: Literal['shopify', 'amazon', 'all'] = Query('all', description="Data source: 'shopify', 'amazon', or 'all' (only for product-level)")
+    source: Literal['shopify', 'amazon', 'all'] = Query('all', description="Data source: 'shopify', 'amazon', or 'all' (only for product-level)"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
+    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
 ):
     """
     Calculate and return growth rate metrics at niche or product level.
@@ -146,13 +149,24 @@ async def get_growth_rate(
             
             # Filter by niche if provided
             if niche:
-                growth_df = growth_df[growth_df['niche'].str.lower() == niche.lower()]
+                growth_df = growth_df[growth_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
+            
+            # Apply pagination
+            total_count = len(growth_df)
+            # Ensure growth_df is a DataFrame before using iloc
+            if isinstance(growth_df, pd.DataFrame):
+                growth_df = growth_df.iloc[offset:offset + limit]
+            else:
+                growth_df = pd.DataFrame()
             
             # Convert to records
             result = growth_df.fillna("").to_dict(orient='records')  # type: ignore
             
             return {
-                "total_count": len(result),
+                "total_count": total_count,
+                "limit": limit,
+                "offset": offset,
+                "returned_count": len(result),
                 "last_updated": datetime.utcnow().isoformat() + "Z",
                 "data": result
             }
@@ -187,13 +201,22 @@ async def get_growth_rate(
                 cols = ['product_id', 'title', 'niche', 'source', 'growth_rate', 'commerce_score', 'social_enrichment']
                 product_df = product_df[cols]
                 
+                # Apply pagination
+                total_count = len(product_df)
+                if isinstance(product_df, pd.DataFrame):
+                    product_df = product_df.iloc[offset:offset + limit]
+                else:
+                    product_df = pd.DataFrame()
+                
                 result = product_df.fillna("").to_dict(orient='records')  # type: ignore
                 return {
-                    "total_count": len(result),
+                    "total_count": total_count,
                     "source": "shopify",
                     "niche": niche,
+                    "limit": limit,
+                    "offset": offset,
+                    "returned_count": len(result),
                     "last_updated": datetime.utcnow().isoformat() + "Z",
-                    "limit": 100,
                     "data": result
                 }
             
@@ -216,13 +239,22 @@ async def get_growth_rate(
                 cols = ['product_id', 'title', 'asin', 'niche', 'source', 'growth_rate', 'commerce_score', 'social_enrichment']
                 product_df = product_df[cols]
                 
+                # Apply pagination
+                total_count = len(product_df)
+                if isinstance(product_df, pd.DataFrame):
+                    product_df = product_df.iloc[offset:offset + limit]
+                else:
+                    product_df = pd.DataFrame()
+                
                 result = product_df.fillna("").to_dict(orient='records')  # type: ignore
                 return {
-                    "total_count": len(result),
+                    "total_count": total_count,
                     "source": "amazon",
                     "niche": niche,
+                    "limit": limit,
+                    "offset": offset,
+                    "returned_count": len(result),
                     "last_updated": datetime.utcnow().isoformat() + "Z",
-                    "limit": 100,
                     "data": result
                 }
             
@@ -231,21 +263,33 @@ async def get_growth_rate(
                 amazon_df = calculate_product_level_amazon_growth(dataframes, niche)
                 
                 # Add niche and source to Shopify records
+                shopify_total = 0
                 if not shopify_df.empty:
                     shopify_df['niche'] = niche
                     shopify_df['source'] = 'shopify'
                     cols = ['product_id', 'title', 'niche', 'source', 'growth_rate', 'commerce_score', 'social_enrichment']
                     shopify_df = shopify_df[cols]
+                    shopify_total = len(shopify_df)
+                    if isinstance(shopify_df, pd.DataFrame):
+                        shopify_df = shopify_df.iloc[offset:offset + limit]
+                    else:
+                        shopify_df = pd.DataFrame()
                     shopify_result = shopify_df.fillna("").to_dict(orient='records')  # type: ignore
                 else:
                     shopify_result = []
                 
                 # Add niche and source to Amazon records
+                amazon_total = 0
                 if not amazon_df.empty:
                     amazon_df['niche'] = niche
                     amazon_df['source'] = 'amazon'
                     cols = ['product_id', 'title', 'asin', 'niche', 'source', 'growth_rate', 'commerce_score', 'social_enrichment']
                     amazon_df = amazon_df[cols]
+                    amazon_total = len(amazon_df)
+                    if isinstance(amazon_df, pd.DataFrame):
+                        amazon_df = amazon_df.iloc[offset:offset + limit]
+                    else:
+                        amazon_df = pd.DataFrame()
                     amazon_result = amazon_df.fillna("").to_dict(orient='records')  # type: ignore
                 else:
                     amazon_result = []
@@ -254,13 +298,17 @@ async def get_growth_rate(
                     "niche": niche,
                     "last_updated": datetime.utcnow().isoformat() + "Z",
                     "shopify": {
-                        "total_count": len(shopify_result),
-                        "limit": 100,
+                        "total_count": shopify_total,
+                        "limit": limit,
+                        "offset": offset,
+                        "returned_count": len(shopify_result),
                         "data": shopify_result
                     },
                     "amazon": {
-                        "total_count": len(amazon_result),
-                        "limit": 100,
+                        "total_count": amazon_total,
+                        "limit": limit,
+                        "offset": offset,
+                        "returned_count": len(amazon_result),
                         "data": amazon_result
                     }
                 }
@@ -272,46 +320,40 @@ async def get_growth_rate(
         raise HTTPException(status_code=500, detail=f"Error calculating growth rate: {str(e)}")
 
 
-@app.get("/metrics/hype")
-async def get_hype_score(
-    niche: Optional[str] = Query(None, description="Filter by niche")
+# ---------- HYPE SCORE ----------
+@app.get("/hype")
+async def hype_endpoint(
+    niche: Optional[str] = Query(None, description="Optional niche filter (e.g. beauty, tech, fashion)"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
+    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
 ):
     """
     Calculate and return hype score metrics.
     
     Hype score combines:
-    - Engagement (60%): TikTok and Reddit engagement metrics
-    - Sentiment (80%): Multi-platform sentiment analysis
-    
-    Formula: hype_score = 0.6 * engagement + 0.8 * sentiment (normalized 0.2-1.0)
+    - Engagement (60%)
+    - Sentiment (80%)
     
     Args:
-        niche: Optional filter by niche
+        niche: Optional filter by product niche
         
     Returns:
-        List of niches with hype scores (0.2-1.0)
+        List of niches with hype scores
     """
     if not dataframes:
         raise HTTPException(status_code=503, detail="Data not loaded")
     
     try:
         logger.info("Calculating hype scores...")
+        
+        # Extract required dataframes
         tiktok_df = dataframes.get('tiktok_df', pd.DataFrame())
-        reddit_df = dataframes.get('reddit_posts_df', pd.DataFrame())
         amazon_df = dataframes.get('amazon_products_df', pd.DataFrame())
+        reddit_df = dataframes.get('reddit_posts_df', pd.DataFrame())
+        shopify_df = dataframes.get('shopify_variants_df', pd.DataFrame())
         
-        if tiktok_df.empty and reddit_df.empty and amazon_df.empty:
-            return {
-                "total_count": 0,
-                "last_updated": datetime.utcnow().isoformat() + "Z",
-                "data": []
-            }
-        
-        hype_df = calculate_hype_score(
-            tiktok_df=tiktok_df,
-            reddit_df=reddit_df,
-            amazon_df=amazon_df
-        )
+        # Calculate hype score
+        hype_df = calculate_hype_score(tiktok_df, reddit_df, amazon_df, shopify_df)
         
         if hype_df.empty:
             return {
@@ -322,13 +364,23 @@ async def get_hype_score(
         
         # Filter by niche if provided
         if niche:
-            hype_df = hype_df[hype_df['niche'].str.lower() == niche.lower()]
+            hype_df = hype_df[hype_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
+        
+        # Apply pagination
+        total_count = len(hype_df)
+        if isinstance(hype_df, pd.DataFrame):
+            hype_df = hype_df.iloc[offset:offset + limit]
+        else:
+            hype_df = pd.DataFrame()
         
         # Convert to records and handle NaN values
         result = hype_df.fillna("").to_dict(orient='records')  # type: ignore
         
         return {
-            "total_count": len(result),
+            "total_count": total_count,
+            "limit": limit,
+            "offset": offset,
+            "returned_count": len(result),
             "last_updated": datetime.utcnow().isoformat() + "Z",
             "data": result
         }
@@ -338,7 +390,11 @@ async def get_hype_score(
 
 
 @app.get("/metrics/sentiment")
-async def get_sentiment_score(niche: Optional[str] = Query(None, description="Filter by product niche")):
+async def get_sentiment_score(
+    niche: Optional[str] = Query(None, description="Filter by product niche"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
+    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
+):
     """
     Calculate and return sentiment score metrics.
     
@@ -369,13 +425,23 @@ async def get_sentiment_score(niche: Optional[str] = Query(None, description="Fi
         
         # Filter by niche if provided
         if niche:
-            sentiment_df = sentiment_df[sentiment_df['niche'].str.lower() == niche.lower()]
+            sentiment_df = sentiment_df[sentiment_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
+        
+        # Apply pagination
+        total_count = len(sentiment_df)
+        if isinstance(sentiment_df, pd.DataFrame):
+            sentiment_df = sentiment_df.iloc[offset:offset + limit]
+        else:
+            sentiment_df = pd.DataFrame()
         
         # Convert to records and handle NaN values
         result = sentiment_df.fillna("").to_dict(orient='records')  # type: ignore
         
         return {
-            "total_count": len(result),
+            "total_count": total_count,
+            "limit": limit,
+            "offset": offset,
+            "returned_count": len(result),
             "last_updated": datetime.utcnow().isoformat() + "Z",
             "data": result
         }
@@ -385,7 +451,11 @@ async def get_sentiment_score(niche: Optional[str] = Query(None, description="Fi
 
 
 @app.get("/metrics/engagement")
-async def get_engagement(niche: Optional[str] = Query(None, description="Filter by niche")):
+async def get_engagement(
+    niche: Optional[str] = Query(None, description="Filter by niche"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
+    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
+):
     """
     Calculate and return engagement metrics.
     
@@ -427,16 +497,22 @@ async def get_engagement(niche: Optional[str] = Query(None, description="Filter 
         
         # Filter by niche if provided
         if niche and isinstance(engagement_df, pd.DataFrame):
-            engagement_df = engagement_df[engagement_df['niche'].str.lower() == niche.lower()]
+            engagement_df = engagement_df[engagement_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
         
-        # Convert to records and handle NaN values
+        # Apply pagination
+        total_count = 0
         if isinstance(engagement_df, pd.DataFrame):
+            total_count = len(engagement_df)
+            engagement_df = engagement_df.iloc[offset:offset + limit]
             result = engagement_df.fillna("").to_dict(orient='records')  # type: ignore
         else:
             result = []
         
         return {
-            "total_count": len(result),
+            "total_count": total_count,
+            "limit": limit,
+            "offset": offset,
+            "returned_count": len(result),
             "last_updated": datetime.utcnow().isoformat() + "Z",
             "data": result
         }
@@ -446,7 +522,11 @@ async def get_engagement(niche: Optional[str] = Query(None, description="Filter 
 
 
 @app.get("/metrics/trend")
-async def get_trend_index(niche: Optional[str] = Query(None, description="Filter by product niche")):
+async def get_trend_index(
+    niche: Optional[str] = Query(None, description="Filter by product niche"),
+    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
+    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
+):
     """
     Calculate and return comprehensive trend index.
     
@@ -478,13 +558,23 @@ async def get_trend_index(niche: Optional[str] = Query(None, description="Filter
         
         # Filter by niche if provided
         if niche:
-            trend_df = trend_df[trend_df['niche'].str.lower() == niche.lower()]
+            trend_df = trend_df[trend_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
+        
+        # Apply pagination
+        total_count = len(trend_df)
+        if isinstance(trend_df, pd.DataFrame):
+            trend_df = trend_df.iloc[offset:offset + limit]
+        else:
+            trend_df = pd.DataFrame()
         
         # Convert to records and handle NaN values
         result = trend_df.fillna("").to_dict(orient='records')  # type: ignore
         
         return {
-            "total_count": len(result),
+            "total_count": total_count,
+            "limit": limit,
+            "offset": offset,
+            "returned_count": len(result),
             "last_updated": datetime.utcnow().isoformat() + "Z",
             "data": result
         }
@@ -494,10 +584,10 @@ async def get_trend_index(niche: Optional[str] = Query(None, description="Filter
 
 if __name__ == "__main__":
     import uvicorn
-    logger.info("Starting Hypeon AI Analytics API...")
+    logger.info(f"Starting {settings.APP_NAME}...")
     uvicorn.run(
         app,
-        host="127.0.0.1",
-        port=8000,
-        log_level="info"
+        host=settings.HOST,
+        port=settings.PORT,
+        log_level=settings.LOG_LEVEL.lower()
     )

@@ -3,6 +3,8 @@ import os
 import logging
 from typing import Dict, Optional
 
+from config import settings
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -17,7 +19,7 @@ def load_all_data(sample_size: Optional[int] = None) -> Dict[str, pd.DataFrame]:
     Returns:
         Dictionary containing cleaned and normalized dataframes
     """
-    base_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data_hypeon_MVP')
+    base_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), settings.DATA_BASE_PATH)
     dataframes = {}
     
     try:
@@ -50,15 +52,25 @@ def load_all_data(sample_size: Optional[int] = None) -> Dict[str, pd.DataFrame]:
         logger.error(f"Error loading Amazon data: {e}")
     
     try:
-        # Load TikTok data
+        # Load TikTok data (try CSV first, then XLSX)
         tiktok_path = os.path.join(base_path, 'tiktok data', 'tiktok data')
-        tiktok_file = os.path.join(tiktok_path, 'tiktok_cleaned_data.xlsx')
-        if os.path.exists(tiktok_file):
-            df = pd.read_excel(tiktok_file, nrows=sample_size)
+        tiktok_csv_file = os.path.join(tiktok_path, 'tiktok_cleaned_data.csv')
+        tiktok_xlsx_file = os.path.join(tiktok_path, 'tiktok_cleaned_data.xlsx')
+        
+        if os.path.exists(tiktok_csv_file):
+            df = pd.read_csv(tiktok_csv_file, nrows=sample_size)
             # Normalize column names
             df.columns = df.columns.str.strip().str.lower()
             dataframes['tiktok_df'] = df
-            logger.info(f"Loaded TikTok data: {len(df)} rows")
+            logger.info(f"Loaded TikTok data from CSV: {len(df)} rows")
+        elif os.path.exists(tiktok_xlsx_file):
+            df = pd.read_excel(tiktok_xlsx_file, nrows=sample_size)
+            # Normalize column names
+            df.columns = df.columns.str.strip().str.lower()
+            dataframes['tiktok_df'] = df
+            logger.info(f"Loaded TikTok data from XLSX: {len(df)} rows")
+        else:
+            logger.warning(f"TikTok data file not found in {tiktok_path}")
     except Exception as e:
         logger.error(f"Error loading TikTok data: {e}")
     

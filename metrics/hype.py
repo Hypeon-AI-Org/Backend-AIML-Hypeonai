@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from typing import Dict, Optional
 from metrics.engagement import engagement
 from metrics.sentiment_score import calculate_sentiment_score
 
@@ -13,7 +12,7 @@ def normalize(series):
 
 
 # ---------- Hype Score ----------
-def calculate_hype_score(tiktok_df: pd.DataFrame, reddit_df: pd.DataFrame, amazon_df: pd.DataFrame, shopify_df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+def calculate_hype_score(tiktok_df, reddit_df, amazon_df, shopify_df=None):
     """
     Combine Engagement + Sentiment to compute final Hype Score.
     Inputs:
@@ -33,14 +32,12 @@ def calculate_hype_score(tiktok_df: pd.DataFrame, reddit_df: pd.DataFrame, amazo
     engage_df = engage_df[engage_df['niche'].notna() & (engage_df['niche'] != 0)]
 
     # ---------- Step 2: Sentiment ----------
-    # Build dataframes dict for sentiment calculation
+    # Build dataframes dict for calculate_sentiment_score
     dataframes = {
         'tiktok_df': tiktok_df,
         'amazon_products_df': amazon_df,
-        'reddit_posts_df': reddit_df,
-        'reddit_comments_df': pd.DataFrame()  # Empty if not provided
+        'reddit_posts_df': reddit_df
     }
-    
     sent_df = calculate_sentiment_score(dataframes)
 
     # Drop invalid niches
@@ -61,4 +58,4 @@ def calculate_hype_score(tiktok_df: pd.DataFrame, reddit_df: pd.DataFrame, amazo
     # ---------- Step 6: Sort ----------
     hype_df = hype_df.sort_values("hype_score", ascending=False).reset_index(drop=True)
 
-    return pd.DataFrame(hype_df[["niche", "hype_score"]])
+    return hype_df[["niche", "hype_score"]]
