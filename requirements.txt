@@ -5,7 +5,11 @@ numpy==1.26.2
 textblob==0.17.1
 openpyxl==3.1.2
 python-multipart==0.0.6
-pydantic==2.5.0
+
+# ✅ Updated to avoid Rust build issue
+pydantic==2.7.4
+pydantic-core==2.18.3
+
 pymongo
 python-dotenv
 PyJWT==2.8.0
