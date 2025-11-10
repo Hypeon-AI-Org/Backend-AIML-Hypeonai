@@ -1,5 +1,13 @@
 """Main FastAPI application for Hypeon AI Metrics."""
 
+# Load environment variables from .env file first
+from dotenv import load_dotenv
+load_dotenv()
+
+# Initialize database indexes
+from user_crud import init_indexes
+init_indexes()
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional, List, Dict, Any, Literal
@@ -15,9 +23,10 @@ from metrics.growth_rate import (
     calculate_product_level_amazon_growth
 )
 from metrics.sentiment_score import calculate_sentiment_score
-from metrics.trend_index import get_combined_metrics
+from metrics.trend_index import calculate_trend_index
 from metrics.engagement import engagement as calculate_engagement
 from metrics.hype import calculate_hype_score
+from auth_router import router as auth_router
 
 # Configure logging
 logging.basicConfig(
@@ -44,6 +53,10 @@ app.add_middleware(
 # Global data store
 dataframes: Dict[str, pd.DataFrame] = {}
 
+# Include authentication router
+app.include_router(auth_router)
+
+
 @app.on_event("startup")
 async def load_data():
     """Load all data at application startup."""
@@ -63,6 +76,7 @@ async def load_data():
         logger.error(f"Error loading data: {e}", exc_info=True)
         raise
 
+
 @app.get("/")
 async def root():
     """Root endpoint with API information."""
@@ -72,10 +86,7 @@ async def root():
         "status": "running",
         "endpoints": [
             "/metrics/growth",
-            "/metrics/sentiment",
-            "/metrics/engagement",
-            "/metrics/trend",
-            "/hype",
+            "/metrics/combined",
             "/health"
         ]
     }
@@ -320,31 +331,33 @@ async def get_growth_rate(
         raise HTTPException(status_code=500, detail=f"Error calculating growth rate: {str(e)}")
 
 
-# ---------- HYPE SCORE ----------
-@app.get("/hype")
-async def hype_endpoint(
-    niche: Optional[str] = Query(None, description="Optional niche filter (e.g. beauty, tech, fashion)"),
+# ---------- COMBINED METRICS (ALL EXCEPT GROWTH RATE) ----------
+@app.get("/metrics/combined")
+async def get_combined_metrics_endpoint(
+    niche: Optional[str] = Query(None, description="Filter by product niche"),
     limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
     offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
 ):
     """
-    Calculate and return hype score metrics.
+    Calculate and return combined niche-level analytics including Trend Index.
     
-    Hype score combines:
-    - Engagement (60%)
-    - Sentiment (80%)
+    Combines:
+    - Sentiment Score
+    - Engagement Rate
+    - Hype Score
+    - Trend Index
     
     Args:
         niche: Optional filter by product niche
         
     Returns:
-        List of niches with hype scores
+        List of niches with sentiment, engagement, hype, and trend index scores
     """
     if not dataframes:
         raise HTTPException(status_code=503, detail="Data not loaded")
     
     try:
-        logger.info("Calculating hype scores...")
+        logger.info("Calculating combined metrics (excluding growth rate)...")
         
         # Extract required dataframes
         tiktok_df = dataframes.get('tiktok_df', pd.DataFrame())
@@ -352,90 +365,68 @@ async def hype_endpoint(
         reddit_df = dataframes.get('reddit_posts_df', pd.DataFrame())
         shopify_df = dataframes.get('shopify_variants_df', pd.DataFrame())
         
-        # Calculate hype score
-        hype_df = calculate_hype_score(tiktok_df, reddit_df, amazon_df, shopify_df)
-        
-        if hype_df.empty:
-            return {
-                "total_count": 0,
-                "last_updated": datetime.utcnow().isoformat() + "Z",
-                "data": []
-            }
-        
-        # Filter by niche if provided
-        if niche:
-            hype_df = hype_df[hype_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
-        
-        # Apply pagination
-        total_count = len(hype_df)
-        if isinstance(hype_df, pd.DataFrame):
-            hype_df = hype_df.iloc[offset:offset + limit]
-        else:
-            hype_df = pd.DataFrame()
-        
-        # Convert to records and handle NaN values
-        result = hype_df.fillna("").to_dict(orient='records')  # type: ignore
-        
-        return {
-            "total_count": total_count,
-            "limit": limit,
-            "offset": offset,
-            "returned_count": len(result),
-            "last_updated": datetime.utcnow().isoformat() + "Z",
-            "data": result
-        }
-    except Exception as e:
-        logger.error(f"Error calculating hype score: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error calculating hype score: {str(e)}")
-
-
-@app.get("/metrics/sentiment")
-async def get_sentiment_score(
-    niche: Optional[str] = Query(None, description="Filter by product niche"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
-    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
-):
-    """
-    Calculate and return sentiment score metrics.
-    
-    Sentiment analysis combines:
-    - Amazon product ratings and review text
-    - TikTok caption sentiment
-    - Reddit post and comment sentiment
-    
-    Args:
-        niche: Optional filter by product niche
-        
-    Returns:
-        List of products with sentiment scores (-1 to 1)
-    """
-    if not dataframes:
-        raise HTTPException(status_code=503, detail="Data not loaded")
-    
-    try:
-        logger.info("Calculating sentiment scores...")
+        # Calculate individual metrics
         sentiment_df = calculate_sentiment_score(dataframes)
+        engagement_df = calculate_engagement(tiktok_df, reddit_df)
+        hype_df = calculate_hype_score(tiktok_df, reddit_df, amazon_df, shopify_df)
+        trend_df = calculate_trend_index(dataframes)
         
-        if sentiment_df.empty:
+        # Check if any data is available
+        if sentiment_df.empty and engagement_df.empty and hype_df.empty and trend_df.empty:
             return {
                 "total_count": 0,
                 "last_updated": datetime.utcnow().isoformat() + "Z",
                 "data": []
             }
+        
+        # Start with sentiment data as the base
+        combined_df = sentiment_df.copy() if not sentiment_df.empty else pd.DataFrame()
+        
+        # Merge with engagement data
+        if not engagement_df.empty:
+            if combined_df.empty:
+                combined_df = engagement_df.copy()
+            else:
+                combined_df = pd.merge(combined_df, engagement_df, on='niche', how='outer')
+        
+        # Merge with hype data
+        if not hype_df.empty:
+            if combined_df.empty:
+                combined_df = hype_df.copy()
+            else:
+                combined_df = pd.merge(combined_df, hype_df, on='niche', how='outer')
+        
+        # Merge with trend data (which includes growth rate and trend index)
+        if not trend_df.empty:
+            if combined_df.empty:
+                combined_df = trend_df.copy()
+            else:
+                combined_df = pd.merge(combined_df, trend_df, on='niche', how='outer')
+        
+        # If we still have no data, return empty result
+        if combined_df.empty:
+            return {
+                "total_count": 0,
+                "last_updated": datetime.utcnow().isoformat() + "Z",
+                "data": []
+            }
+        
+        # Fill NaN values
+        combined_df = combined_df.fillna(0)
         
         # Filter by niche if provided
         if niche:
-            sentiment_df = sentiment_df[sentiment_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
+            combined_df = combined_df[combined_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
         
         # Apply pagination
-        total_count = len(sentiment_df)
-        if isinstance(sentiment_df, pd.DataFrame):
-            sentiment_df = sentiment_df.iloc[offset:offset + limit]
+        total_count = len(combined_df)
+        if isinstance(combined_df, pd.DataFrame):
+            combined_df = combined_df.iloc[offset:offset + limit]
         else:
-            sentiment_df = pd.DataFrame()
+            combined_df = pd.DataFrame()
         
-        # Convert to records and handle NaN values
-        result = sentiment_df.fillna("").to_dict(orient='records')  # type: ignore
+        # Convert to records
+        result = combined_df.fillna("").to_dict(orient='records')
         
         return {
             "total_count": total_count,
@@ -446,141 +437,9 @@ async def get_sentiment_score(
             "data": result
         }
     except Exception as e:
-        logger.error(f"Error calculating sentiment score: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error calculating sentiment score: {str(e)}")
+        logger.error(f"Error calculating combined metrics: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Error calculating combined metrics: {str(e)}")
 
-
-@app.get("/metrics/engagement")
-async def get_engagement(
-    niche: Optional[str] = Query(None, description="Filter by niche"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
-    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
-):
-    """
-    Calculate and return engagement metrics.
-    
-    Engagement combines:
-    - TikTok: (likes + comments + shares) / views
-    - Reddit: (upvotes + comments) per post
-    
-    Weighted: 70% TikTok, 30% Reddit
-    
-    Args:
-        niche: Optional filter by niche
-        
-    Returns:
-        List of niches with engagement scores (0-1)
-    """
-    if not dataframes:
-        raise HTTPException(status_code=503, detail="Data not loaded")
-    
-    try:
-        logger.info("Calculating engagement metrics...")
-        tiktok_df = dataframes.get('tiktok_df', pd.DataFrame())
-        reddit_posts_df = dataframes.get('reddit_posts_df', pd.DataFrame())
-        
-        if tiktok_df.empty and reddit_posts_df.empty:
-            return {
-                "total_count": 0,
-                "last_updated": datetime.utcnow().isoformat() + "Z",
-                "data": []
-            }
-        
-        engagement_df = calculate_engagement(tiktok_df, reddit_posts_df)
-        
-        if engagement_df.empty:
-            return {
-                "total_count": 0,
-                "last_updated": datetime.utcnow().isoformat() + "Z",
-                "data": []
-            }
-        
-        # Filter by niche if provided
-        if niche and isinstance(engagement_df, pd.DataFrame):
-            engagement_df = engagement_df[engagement_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
-        
-        # Apply pagination
-        total_count = 0
-        if isinstance(engagement_df, pd.DataFrame):
-            total_count = len(engagement_df)
-            engagement_df = engagement_df.iloc[offset:offset + limit]
-            result = engagement_df.fillna("").to_dict(orient='records')  # type: ignore
-        else:
-            result = []
-        
-        return {
-            "total_count": total_count,
-            "limit": limit,
-            "offset": offset,
-            "returned_count": len(result),
-            "last_updated": datetime.utcnow().isoformat() + "Z",
-            "data": result
-        }
-    except Exception as e:
-        logger.error(f"Error calculating engagement: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error calculating engagement: {str(e)}")
-
-
-@app.get("/metrics/trend")
-async def get_trend_index(
-    niche: Optional[str] = Query(None, description="Filter by product niche"),
-    limit: int = Query(100, ge=1, le=1000, description="Maximum number of results to return"),
-    offset: int = Query(0, ge=0, description="Number of results to skip for pagination")
-):
-    """
-    Calculate and return comprehensive trend index.
-    
-    Trend index combines:
-    - Growth Rate (35%)
-    - Engagement Rate (25%)
-    - Sentiment Score (25%)
-    - Hype Score (15%)
-    
-    Args:
-        niche: Optional filter by product niche
-        
-    Returns:
-        List of products with all metrics and trend index (0-100)
-    """
-    if not dataframes:
-        raise HTTPException(status_code=503, detail="Data not loaded")
-    
-    try:
-        logger.info("Calculating trend index...")
-        trend_df = get_combined_metrics(dataframes)
-        
-        if trend_df.empty:
-            return {
-                "total_count": 0,
-                "last_updated": datetime.utcnow().isoformat() + "Z",
-                "data": []
-            }
-        
-        # Filter by niche if provided
-        if niche:
-            trend_df = trend_df[trend_df['niche'].str.lower() == niche.lower()]  # type: ignore[reportAttributeAccessIssue]
-        
-        # Apply pagination
-        total_count = len(trend_df)
-        if isinstance(trend_df, pd.DataFrame):
-            trend_df = trend_df.iloc[offset:offset + limit]
-        else:
-            trend_df = pd.DataFrame()
-        
-        # Convert to records and handle NaN values
-        result = trend_df.fillna("").to_dict(orient='records')  # type: ignore
-        
-        return {
-            "total_count": total_count,
-            "limit": limit,
-            "offset": offset,
-            "returned_count": len(result),
-            "last_updated": datetime.utcnow().isoformat() + "Z",
-            "data": result
-        }
-    except Exception as e:
-        logger.error(f"Error calculating trend index: {e}", exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Error calculating trend index: {str(e)}")
 
 if __name__ == "__main__":
     import uvicorn

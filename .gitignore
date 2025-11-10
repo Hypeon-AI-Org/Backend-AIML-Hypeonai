@@ -1,4 +1,4 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -58,3 +58,16 @@ htmlcov/
 
 # OS
 Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/settings.json
+!.vscode/settings.json
+
+# Python
+*.pyc
+__pycache__/
+.pytest_cache/
+.pytest_cache_*/

@@ -6,3 +6,8 @@ textblob==0.17.1
 openpyxl==3.1.2
 python-multipart==0.0.6
 pydantic==2.5.0
+pymongo
+python-dotenv
+PyJWT==2.8.0
+bcrypt==4.0.1
+email-validator==2.0.0
