@@ -1,0 +1,76 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Testing
+tests/
+test_*.py
+pytest.ini
+.pytest_cache/
+*.ipynb
+.ipynb_checkpoints/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+.history/
+
+# Local development
+logs/
+*.log
+*.sqlite
+*.db
+*.pkl
+
+# Data files
+data/
+dataset/
+media/
+*.csv
+sample_data.json
+
+# Git and version control
+.git/
+.gitignore
+.github/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Backups and archives
+*.bak
+*.backup
+*.tar
+*.zip
+*.rar
+
+# Node modules (if using any tools)
+node_modules/

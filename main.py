@@ -1,18 +1,25 @@
 import os
-from fastapi import FastAPI, Depends, Request, Response
+from fastapi import FastAPI, Depends, Request, Response, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
+from fastapi.responses import JSONResponse
+from datetime import datetime
 
 from app.routes import auth, products, saved_searches
 from app.core import events
+from app.core.config import settings
 from app.utils.rate_limiter import limiter, rate_limit_exceeded_handler
+from app.utils.logger import logger
+
+# Global database client - initialized in startup event
+client: AsyncIOMotorClient = None
 
 # Security headers middleware
 async def add_security_headers(request: Request, call_next):
-    """Middleware to add security headers to all responses."""
+    """Middleware to add comprehensive security headers to all responses."""
     try:
         response = await call_next(request)
         response.headers["X-Content-Type-Options"] = "nosniff"
@@ -21,9 +28,12 @@ async def add_security_headers(request: Request, call_next):
         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+        response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
+        response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:;"
         return response
     except Exception as e:
-        # If there's an error in the middleware, still return a response
+        logger.error(f"Security headers middleware error: {str(e)}")
         response = Response("Internal server error", status_code=500)
         return response
 
@@ -49,9 +59,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    expose_headers=["Access-Control-Allow-Origin"]
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
+    expose_headers=["Access-Control-Allow-Origin"],
+    max_age=3600
 )
 
 # Add rate limiter to the app
@@ -81,68 +92,79 @@ async def health_check():
     return {"status": "healthy", "service": "Hypeon AI Backend"}
 
 @app.get("/health/db")
-async def database_health_check():
-    """Database health check endpoint that verifies database connectivity and provides detailed info."""
+async def health_db():
+    """Test database connectivity."""
     try:
-        # Check if the database connection is alive
-        db = events.db
-        if db is not None:
-            # Run a simple ping command to test the connection
-            await db.command('ping')
-            
-            # Get database stats
-            db_stats = await db.command('dbStats')
-            
-            return {
-                "status": "healthy", 
-                "database": "connected",
-                "collections": db_stats.get("collections", 0),
-                "objects": db_stats.get("objects", 0),
-                "avgObjSize": db_stats.get("avgObjSize", 0),
-                "dataSize": db_stats.get("dataSize", 0)
-            }
-        else:
-            return {"status": "unhealthy", "database": "not connected", "details": "Database instance is None"}
+        if client is None:
+            return {"status": "error", "message": "Database client not initialized"}
+        
+        await client.admin.command('ping')
+        return {
+            "status": "healthy",
+            "database": settings.MONGO_DB,
+            "message": "MongoDB connection successful"
+        }
     except Exception as e:
-        return {"status": "unhealthy", "database": "connection error", "details": str(e)}
+        logger.error(f"Database health check failed: {str(e)}")
+        return {
+            "status": "unhealthy",
+            "message": str(e)
+        }, 503
+
 
 @app.get("/health/full")
-async def full_health_check():
-    """Comprehensive health check endpoint that verifies all system dependencies."""
-    health_status = {
-        "status": "healthy",
-        "service": "Hypeon AI Backend",
-        "checks": {}
-    }
-    
-    # Check database
+async def health_full():
+    """Comprehensive health check including database."""
     try:
-        db = events.db
-        if db is not None:
-            await db.command('ping')
-            health_status["checks"]["database"] = {"status": "healthy", "details": "Connected"}
+        db_status = "healthy"
+        db_message = "Connected"
+        
+        if client is None:
+            db_status = "unhealthy"
+            db_message = "Client not initialized"
         else:
-            health_status["checks"]["database"] = {"status": "unhealthy", "details": "Not connected"}
-            health_status["status"] = "degraded"
-    except Exception as e:
-        health_status["checks"]["database"] = {"status": "unhealthy", "details": str(e)}
-        health_status["status"] = "unhealthy"
-    
-    # Check environment variables
-    required_env_vars = ["MONGO_URI", "JWT_SECRET"]
-    missing_env_vars = []
-    for var in required_env_vars:
-        if not os.getenv(var):
-            missing_env_vars.append(var)
-    
-    if missing_env_vars:
-        health_status["checks"]["environment"] = {
-            "status": "degraded", 
-            "details": f"Missing environment variables: {', '.join(missing_env_vars)}"
+            try:
+                await client.admin.command('ping')
+            except Exception as e:
+                db_status = "unhealthy"
+                db_message = str(e)
+        
+        return {
+            "status": "healthy" if db_status == "healthy" else "degraded",
+            "timestamp": datetime.utcnow().isoformat(),
+            "database": {
+                "status": db_status,
+                "message": db_message,
+                "database_name": settings.MONGO_DB
+            },
+            "environment": settings.ENVIRONMENT
         }
-        if health_status["status"] == "healthy":
-            health_status["status"] = "degraded"
-    else:
-        health_status["checks"]["environment"] = {"status": "healthy", "details": "All required variables present"}
-    
-    return health_status
+    except Exception as e:
+        logger.error(f"Full health check failed: {str(e)}")
+        return {"status": "unhealthy", "message": str(e)}, 503
+
+# Add after app initialization
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    """Global exception handler for unhandled errors."""
+    logger.error(f"Unhandled exception: {str(exc)}", exc_info=exc)
+    return JSONResponse(
+        status_code=500,
+        content={
+            "detail": "Internal server error",
+            "status": 500,
+            "message": str(exc) if os.getenv("ENVIRONMENT") != "production" else "An error occurred"
+        }
+    )
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    """HTTP exception handler for structured error responses."""
+    logger.warning(f"HTTP Exception - Status: {exc.status_code}, Detail: {exc.detail}")
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "detail": exc.detail,
+            "status": exc.status_code
+        }
+    )

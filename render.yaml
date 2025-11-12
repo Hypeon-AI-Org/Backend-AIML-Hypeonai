@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: hypeon-backend
+    env: python
+    plan: starter
+    pythonVersion: 3.11
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB
+        value: hypeon_mvp_db
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "120"
+      - key: REFRESH_TOKEN_EXPIRE_DAYS
+        value: "7"
+      - key: FRONTEND_URL
+        value: https://your-frontend-domain.com
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: SMTP_HOST
+        value: smtp.gmail.com
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: EMAIL_FROM
+        value: noreply@hypeon.ai
+      - key: TESTING
+        value: "false"

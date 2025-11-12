@@ -1,3 +1,59 @@
-2025-11-12 12:40:24 | INFO | app.core.events:startup:36 | ✅ MongoDB connection established successfully
-2025-11-12 12:40:26 | INFO | app.core.events:startup:48 | ✅ MongoDB connected and indexes created
-2025-11-12 12:40:27 | INFO | app.core.events:shutdown:64 | ✅ MongoDB connection closed gracefully
+2025-11-13 02:36:08 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 02:36:12 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 02:36:13 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 02:36:13 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 02:36:13 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 02:36:14 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 02:36:14 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 02:36:15 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 02:36:15 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 02:42:15 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 02:42:18 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 02:42:19 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 02:42:19 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 02:42:19 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 02:42:20 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 02:42:20 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 02:42:21 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 02:42:21 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 02:42:46 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 02:42:50 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 02:42:51 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 02:42:51 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 02:42:52 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 02:42:52 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 02:42:53 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 02:42:53 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 02:42:53 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 02:43:22 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 02:43:26 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 02:43:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 02:43:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 02:43:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 02:43:28 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 02:43:28 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 02:43:29 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 02:43:29 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 02:44:59 | INFO | app.routes.auth:signup:38 | Signup attempt for email: user@example.com
+2025-11-13 02:44:59 | WARNING | app.routes.auth:signup:43 | Signup failed - email already in use: user@example.com
+2025-11-13 02:44:59 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 02:45:09 | INFO | app.routes.auth:signup:38 | Signup attempt for email: user1@example.com
+2025-11-13 02:45:10 | INFO | app.routes.auth:signup:57 | Successful signup for user: 6914f8dd5902a097c2a83c1a (user1@example.com)
+2025-11-13 02:45:10 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6914f8de5902a097c2a83c1b, User: 6914f8dd5902a097c2a83c1a, Action: signup
+2025-11-13 02:45:10 | INFO | app.routes.auth:signup:81 | Tokens generated for user: 6914f8dd5902a097c2a83c1a
+2025-11-13 02:46:02 | INFO | app.routes.auth:login:101 | Login attempt for email: user1@example.com
+2025-11-13 02:46:02 | INFO | app.routes.auth:login:114 | Successful login for user: 6914f8dd5902a097c2a83c1a (user1@example.com)
+2025-11-13 02:46:03 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6914f9125902a097c2a83c1c, User: 6914f8dd5902a097c2a83c1a, Action: login
+2025-11-13 02:46:03 | INFO | app.routes.auth:login:138 | Last login updated for user: 6914f8dd5902a097c2a83c1a
+2025-11-13 02:46:03 | INFO | app.routes.auth:login:142 | Tokens generated for user: 6914f8dd5902a097c2a83c1a
+2025-11-13 02:46:49 | INFO | app.routes.auth:google_login:161 | Google login attempt
+2025-11-13 02:46:49 | WARNING | app.routes.auth:google_login:165 | Google login failed - missing idToken
+2025-11-13 02:46:49 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 400, Detail: Missing idToken
+2025-11-13 02:47:10 | INFO | app.routes.auth:refresh_token_endpoint:253 | Refresh token request received
+2025-11-13 02:47:10 | INFO | app.routes.auth:refresh_token_endpoint:280 | Valid refresh token for user: 6914f8dd5902a097c2a83c1a
+2025-11-13 02:47:10 | INFO | app.routes.auth:refresh_token_endpoint:298 | New tokens generated for user: 6914f8dd5902a097c2a83c1a
+2025-11-13 02:47:35 | INFO | app.routes.auth:forgot_pass:345 | Password reset request for email: user1@example.com
+2025-11-13 02:47:35 | INFO | app.routes.auth:forgot_pass:359 | Password reset token set for user: 6914f8dd5902a097c2a83c1a
+2025-11-13 02:47:40 | INFO | app.routes.auth:forgot_pass:368 | Password reset email sent to: user1@example.com
+2025-11-13 02:48:35 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 02:50:27 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format

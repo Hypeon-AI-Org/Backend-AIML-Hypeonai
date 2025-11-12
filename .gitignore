@@ -1,10 +1,74 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
 __pycache__/
 *.pyc
-.env
-venv/
-env/
+*.pyo
+*.pyd
+.Python
+*.so
 .pytest_cache/
 dist/
 build/
 *.egg-info/
+.coverage
+htmlcov/
+
+# Virtual Environments
+venv/
+env/
+ENV/
 .venv/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+.history/
+
+# Local development
+logs/
+*.log
+*.sqlite
+*.db
+*.pkl
+
+# Data and media
+data/
+dataset/
+media/
+*.csv
+*.json
+
+# Testing
+tests/
+test_*.py
+pytest.ini
+.pytest_cache/
+
+# Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# Backups
+*.bak
+*.backup
+*.tar
+*.zip
+*.rar
+
+# Git
+.git/
+
