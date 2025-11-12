@@ -13,14 +13,19 @@ from app.utils.rate_limiter import limiter, rate_limit_exceeded_handler
 # Security headers middleware
 async def add_security_headers(request: Request, call_next):
     """Middleware to add security headers to all responses."""
-    response = await call_next(request)
-    response.headers["X-Content-Type-Options"] = "nosniff"
-    response.headers["X-Frame-Options"] = "DENY"
-    response.headers["X-XSS-Protection"] = "1; mode=block"
-    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
-    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-    response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
-    return response
+    try:
+        response = await call_next(request)
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        return response
+    except Exception as e:
+        # If there's an error in the middleware, still return a response
+        response = Response("Internal server error", status_code=500)
+        return response
 
 # Initialize the FastAPI application with a descriptive title
 app = FastAPI(title="Hypeon Backend (FastAPI)")
