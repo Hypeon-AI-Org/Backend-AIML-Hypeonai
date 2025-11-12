@@ -63,9 +63,12 @@ app.add_event_handler("startup", events.startup)
 app.add_event_handler("shutdown", events.shutdown)
 
 @app.get("/")
-async def root():
-    """Root endpoint that returns a welcome message."""
-    return {"message": "Hypeon AI Backend (FastAPI) ✅"}
+def root():
+    return {"status": "Hypeon AI backend running successfully 🚀"}
+
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
 
 @app.get("/health")
 async def health_check():
