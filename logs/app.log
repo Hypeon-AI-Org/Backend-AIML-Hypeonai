@@ -1,0 +1,3 @@
+2025-11-12 12:40:24 | INFO | app.core.events:startup:36 | ✅ MongoDB connection established successfully
+2025-11-12 12:40:26 | INFO | app.core.events:startup:48 | ✅ MongoDB connected and indexes created
+2025-11-12 12:40:27 | INFO | app.core.events:shutdown:64 | ✅ MongoDB connection closed gracefully

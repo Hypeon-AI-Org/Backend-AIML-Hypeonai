@@ -1,23 +1,58 @@
-# Hypeon AI — Backend
+# Backend AIML Hypeonai (Production-Ready FastAPI Backend)
 
-The backend handles all data and API operations for Hypeon AI.
+This repository contains a production-ready FastAPI backend with authentication, rate limiting, and health monitoring.
 
-### Core Responsibilities
+## Key Features
 
-* Collect and process product data from **Amazon** and **Shopify**.
-* Collect social discussions and engagement data from **Reddit** and **TikTok**.
-* Clean, normalize, and unify all data into a single structure used by the platform.
-* Provide internal APIs for:
+- **Authentication**: Email/password and Google OAuth2 sign-in
+- **Rate Limiting**: Protects auth endpoints from abuse
+- **Health Checks**: Application and database health monitoring
+- **Security**: JWT tokens, secure cookies, password hashing
+- **Database**: MongoDB integration with Motor async driver
 
-  * Product insights (ratings, reviews, pricing)
-  * Variant analysis (sizes, colors, price changes)
-  * Category-level comparisons
-  * Social trend insights from Reddit and TikTok discussions
-* Manage database updates, caching, and background processing for large datasets.
-* Serve data to the web app and AI models through internal endpoints.
-* Handle authentication, request validation, and logging for all backend operations.
+## Files Added
 
-### In Short
+- `main.py` - app entrypoint with health check endpoints
+- `app/` - package with routes, core, models, utils, deps, and schemas
+- `app/utils/rate_limiter.py` - rate limiting implementation
+- `test_health.py` - health check endpoint tests
+- `test_auth_rate_limit.py` - auth endpoint rate limiting tests
+- `data/products.example.json` - sample product data
+- `scripts/seed_products.py` - small script to seed example data
 
-It’s the system that connects raw e-commerce and social data → cleans and organizes it → makes it available to all Hypeon AI features through secure APIs.
+## Deployment Improvements
 
+- Removed credentials from .env.example
+- Added health check endpoints (/health, /health/db)
+- Implemented rate limiting on auth endpoints
+- Added comprehensive logging
+
+## How to Run (Development)
+
+1. Create a virtualenv and install requirements:
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+2. Run the app:
+
+```cmd
+uvicorn main:app --reload
+```
+
+## Health Check Endpoints
+
+- `GET /health` - Basic application health
+- `GET /health/db` - Database connectivity health
+
+## Rate Limited Endpoints
+
+- `POST /api/auth/signup` - 5 requests per minute
+- `POST /api/auth/login` - 5 requests per minute
+- `POST /api/auth/google` - 5 requests per minute
+- `POST /api/auth/refresh` - 5 requests per minute
+- `POST /api/auth/forgot` - 3 requests per hour
+- `POST /api/auth/reset` - 3 requests per hour

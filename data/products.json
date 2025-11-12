@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Wallpaper A",
+    "platform": "amazon",
+    "niche": "Wallpaper",
+    "region": "US",
+    "hypeScore": 92,
+    "growthWeekly": 5.2,
+    "growthMonthly": 21.3,
+    "metadata": {}
+  },
+  {
+    "title": "Desk Lamp B",
+    "platform": "shopify",
+    "niche": "Home Decor",
+    "region": "UK",
+    "hypeScore": 84,
+    "growthWeekly": 3.4,
+    "growthMonthly": 18.2,
+    "metadata": {}
+  },
+  {
+    "title": "Yoga Mat C",
+    "platform": "amazon",
+    "niche": "Fitness",
+    "region": "US",
+    "hypeScore": 89,
+    "growthWeekly": 4.1,
+    "growthMonthly": 20.7,
+    "metadata": {}
+  }
+]
