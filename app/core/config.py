@@ -24,6 +24,15 @@ class Settings:
     
     # Frontend settings
     FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
+    ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
+    
+    # CORS allowed origins
+    ALLOWED_ORIGINS: list = [
+        "http://localhost:3000",
+        "https://hypeon-dynamic-frontend.vercel.app",
+        "https://app.hypeon.ai",
+        "https://hypeon.ai"
+    ]
     
     # Email settings
     SMTP_HOST: Optional[str] = os.getenv("SMTP_HOST")

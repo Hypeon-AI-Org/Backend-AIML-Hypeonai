@@ -1,9 +1,6 @@
-import os
-from fastapi import FastAPI, Depends, Request, Response, HTTPException
+from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from fastapi.responses import JSONResponse
 from datetime import datetime
@@ -19,27 +16,26 @@ client: AsyncIOMotorClient = None
 
 # Security headers middleware
 async def add_security_headers(request: Request, call_next):
-    """Middleware to add comprehensive security headers to all responses."""
+    """Middleware to add comprehensive production-grade security headers to all responses."""
     try:
         response = await call_next(request)
+        # Prevent MIME type sniffing
         response.headers["X-Content-Type-Options"] = "nosniff"
+        # Prevent clickjacking
         response.headers["X-Frame-Options"] = "DENY"
+        # Enable XSS protection
         response.headers["X-XSS-Protection"] = "1; mode=block"
-        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        # Enforce HTTPS
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains; preload"
+        # Referrer policy
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-        response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        # Permissions policy
+        response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=(), payment=()"
+        # Cross-origin policies
         response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
         response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
-        response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:;"
-        
-        # Add CORS headers explicitly to ensure they're always present
-        origin = request.headers.get("origin")
-        if origin == "http://localhost:3000":
-            response.headers["Access-Control-Allow-Origin"] = origin
-            response.headers["Access-Control-Allow-Credentials"] = "true"
-            response.headers["Access-Control-Allow-Methods"] = "DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT"
-            response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
-            response.headers["Access-Control-Max-Age"] = "600"
+        # Content Security Policy
+        response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https:;"
         
         return response
     except Exception as e:
@@ -48,19 +44,24 @@ async def add_security_headers(request: Request, call_next):
         return response
 
 # Initialize the FastAPI application with a descriptive title
-app = FastAPI(title="Hypeon Backend (FastAPI)")
+app = FastAPI(
+    title="Hypeon Backend API",
+    description="Production-grade AI product discovery backend",
+    version="1.0.0"
+)
 
 # Add security headers middleware
 app.middleware("http")(add_security_headers)
 
-# Add CORS middleware
+# Add CORS middleware with production-safe origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=settings.ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    expose_headers=["*"],  # needed to expose set-cookie and authorization headers
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
+    allow_headers=["Authorization", "Content-Type"],
+    expose_headers=["Authorization", "X-Total-Count"],
+    max_age=600,
 )
 
 # Add rate limiter to the app
@@ -76,9 +77,10 @@ app.include_router(saved_searches.router, prefix="/api/saved-searches", tags=["s
 app.add_event_handler("startup", events.startup)
 app.add_event_handler("shutdown", events.shutdown)
 
-@app.get("/")
-def root():
-    return {"status": "Hypeon AI backend running successfully 🚀"}
+@app.api_route("/", methods=["GET", "HEAD"])
+async def root():
+    """Root endpoint for health check and API status."""
+    return {"status": "operational", "service": "Hypeon AI Backend"}
 
 @app.get("/healthz")
 def healthz():
@@ -151,7 +153,7 @@ async def global_exception_handler(request: Request, exc: Exception):
         content={
             "detail": "Internal server error",
             "status": 500,
-            "message": str(exc) if os.getenv("ENVIRONMENT") != "production" else "An error occurred"
+            "message": str(exc) if settings.ENVIRONMENT != "production" else "An error occurred"
         }
     )
 
