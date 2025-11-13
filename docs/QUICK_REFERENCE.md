@@ -35,13 +35,14 @@ GET  /health/full          Full status
 
 ### Auth
 ```
-POST /api/auth/signup      Create account
-POST /api/auth/login       Login
-POST /api/auth/google      Google OAuth
-POST /api/auth/refresh     Refresh token
-POST /api/auth/logout      Logout
-POST /api/auth/forgot      Password reset email
-POST /api/auth/reset       Reset password
+POST /api/auth/signup           Create account
+POST /api/auth/login            Login
+POST /api/auth/google           Google OAuth
+GET  /api/auth/me               Get current user
+POST /api/auth/refresh          Refresh token
+POST /api/auth/logout           Logout
+POST /api/auth/forgot           Request password reset
+POST /api/auth/reset            Reset password (from email)
 ```
 
 ### Products (🔒 Auth Required)
@@ -94,18 +95,58 @@ POST /api/auth/login
 }
 ```
 
+### Get Current User
+```
+GET /api/auth/me
+Header: Authorization: Bearer <access_token>
+```
+
+### Refresh Token
+```
+POST /api/auth/refresh
+Cookie: refresh_token=<refresh_token>
+```
+
+### Request Password Reset
+```json
+POST /api/auth/forgot
+{
+  "email": "john@example.com"
+}
+```
+
 ### List Products
 ```
 GET /api/products/?niche=electronics&limit=10&sort=hypeScore:desc
+Header: Authorization: Bearer <access_token>
+```
+
+### Get Product Details
+```
+GET /api/products/{product_id}
+Header: Authorization: Bearer <access_token>
 ```
 
 ### Create Saved Search
 ```json
 POST /api/saved-searches/
 {
-  "name": "Search Name",
-  "params": {"niche": "electronics"}
+  "name": "My Search",
+  "params": {"niche": "electronics", "platform": "amazon"},
+  "notes": "Optional notes"
 }
+```
+
+### List Saved Searches
+```
+GET /api/saved-searches/
+Header: Authorization: Bearer <access_token>
+```
+
+### Delete Saved Search
+```
+DELETE /api/saved-searches/{id}
+Header: Authorization: Bearer <access_token>
 ```
 
 ---

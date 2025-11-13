@@ -34,8 +34,7 @@ The authentication system uses **JWT tokens** with refresh token rotation:
 {
   "name": "John Doe",
   "email": "john@example.com",
-  "password": "SecurePassword123!",
-  "confirmPassword": "SecurePassword123!"
+  "password": "SecurePassword123!"
 }
 ```
 
@@ -121,14 +120,13 @@ import { GoogleLogin } from '@react-oauth/google';
 
 ---
 
-### 4. Refresh Token
+### 3. Refresh Token
 
 **Endpoint:** `POST /api/auth/refresh`
 
 **Request:**
 ```
-Headers:
-  Cookie: refresh_token=<refresh_token_from_httpOnly_cookie>
+Cookie: refresh_token=<refresh_token_from_httpOnly_cookie>
 ```
 
 **Response (200):**
@@ -136,12 +134,14 @@ Headers:
 {
   "access_token": "<new_access_token>",
   "refresh_token": "<new_refresh_token>",
+  "user": {
+    "id": "507f1f77bcf86cd799439011",
+    "name": "John Doe",
+    "email": "john@example.com"
+  },
   "token_type": "bearer"
 }
 ```
-
-**Error Responses:**
-- `401 Unauthorized` — Invalid or expired refresh token
 
 **Frontend Implementation:**
 ```typescript
@@ -164,15 +164,29 @@ const refreshAccessToken = async () => {
 
 ---
 
+### 4. Get Current User
+
+**Endpoint:** `GET /api/auth/me`
+
+**Headers:**
+```
+Authorization: Bearer <access_token>
+```
+
+**Response (200):**
+```json
+{
+  "id": "507f1f77bcf86cd799439011",
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
+
+---
+
 ### 5. Logout
 
 **Endpoint:** `POST /api/auth/logout`
-
-**Request:**
-```
-Headers:
-  Authorization: Bearer <access_token>
-```
 
 **Response (200):**
 ```json
@@ -184,9 +198,6 @@ Headers:
 const logout = async () => {
   await fetch('http://localhost:8000/api/auth/logout', {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-    },
     credentials: 'include'
   });
   
@@ -197,11 +208,9 @@ const logout = async () => {
 
 ---
 
-### 6. Password Reset
+### 6. Forgot Password
 
-**Step 1: Request Password Reset**
-
-**Endpoint:** `POST /api/auth/forgot-password`
+**Endpoint:** `POST /api/auth/forgot`
 
 **Request:**
 ```json
@@ -212,61 +221,91 @@ const logout = async () => {
 
 **Response (200):**
 ```json
-{ "message": "Password reset email sent" }
+{
+  "message": "If an account exists, an email was sent"
+}
 ```
 
-**Rate Limited:** 3 requests per hour
+**Rate Limited:** 3 requests per 15 minutes
 
-**Step 2: Reset Password**
+**Frontend Implementation:**
+```typescript
+const requestPasswordReset = async (email: string) => {
+  const response = await fetch('http://localhost:8000/api/auth/forgot', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email })
+  });
+  
+  if (response.ok) {
+    // Show success message - don't reveal if email exists
+    showNotification('Check your email for reset instructions');
+  }
+};
+```
 
-**Endpoint:** `POST /api/auth/reset-password`
+---
+
+### 7. Reset Password
+
+**Endpoint:** `POST /api/auth/reset`
 
 **Request:**
 ```json
 {
-  "token": "<reset_token_from_email_link>",
-  "newPassword": "NewSecurePassword123!",
-  "confirmPassword": "NewSecurePassword123!"
+  "token": "reset_token_from_email",
+  "new_password": "NewPassword123!"
 }
 ```
 
 **Response (200):**
 ```json
-{ "message": "Password reset successfully" }
+{ "message": "Password updated" }
+```
+
+**Rate Limited:** 3 requests per 15 minutes
+
+**Frontend Implementation:**
+```typescript
+const resetPassword = async (token: string, newPassword: string) => {
+  const response = await fetch('http://localhost:8000/api/auth/reset', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token, new_password: newPassword })
+  });
+  
+  if (response.ok) {
+    showNotification('Password reset successfully');
+    window.location.href = '/login';
+  } else {
+    const error = await response.json();
+    showError(error.detail);
+  }
+};
 ```
 
 ---
 
 ## 📦 Products Endpoint
 
+All product endpoints require authentication.
+
 ### List Products (with Filters & Search)
 
 **Endpoint:** `GET /api/products/`
 
-**Headers:**
-```
-Authorization: Bearer <access_token>
-Content-Type: application/json
-```
-
-**Query Parameters:**
-
-| Parameter | Type | Default | Example | Description |
-|-----------|------|---------|---------|-------------|
-| `niche` | string | - | `Wallpaper` | Filter by product niche |
-| `platform` | string | - | `amazon` | Filter by platform (amazon, etsy, etc.) |
-| `region` | string | - | `US` | Filter by region (US, UK, EU, etc.) |
-| `q` | string | - | `trending` | Full-text search across title and description |
-| `minHype` | number | 0 | `75` | Minimum hype score (0-100) |
-| `maxHype` | number | 100 | `95` | Maximum hype score (0-100) |
-| `sortBy` | string | `hypeScore` | `growthMonthly` | Sort field |
-| `order` | string | `desc` | `asc` | Sort order (asc/desc) |
-| `limit` | integer | 50 | `25` | Results per page (max 100) |
-| `offset` | integer | 0 | `50` | Pagination offset |
+**Query Parameters**:
+- `niche` (optional): Filter by product niche
+- `platform` (optional): Filter by platform (e.g., 'amazon', 'shopify')
+- `region` (optional): Filter by region
+- `limit` (default: 50, max: 100): Results per page
+- `offset` (default: 0): Pagination offset
+- `sort` (default: "hypeScore:desc"): Sort field and direction (format: "field:direction")
+- `q` (optional): Full-text search query
 
 **Example Request:**
 ```bash
-curl -X GET "http://localhost:8000/api/products/?niche=Wallpaper&region=US&minHype=75&limit=20" \
+curl -X GET "http://localhost:8000/api/products/?niche=electronics&platform=amazon&region=US&limit=20&sort=hypeScore:desc" \
   -H "Authorization: Bearer <access_token>"
 ```
 
@@ -280,26 +319,14 @@ curl -X GET "http://localhost:8000/api/products/?niche=Wallpaper&region=US&minHy
   "items": [
     {
       "id": "507f1f77bcf86cd799439011",
-      "title": "Modern Minimalist Wallpaper",
-      "description": "High-quality, trendy wallpaper perfect for offices",
+      "title": "Wireless Bluetooth Headphones",
       "platform": "amazon",
-      "niche": "Wallpaper",
+      "niche": "electronics",
       "region": "US",
       "hypeScore": 92,
       "growthWeekly": 5.2,
       "growthMonthly": 21.3,
-      "growthYearly": 156.8,
-      "averageRating": 4.8,
-      "reviewCount": 1250,
-      "price": 29.99,
-      "url": "https://amazon.com/...",
-      "imageUrl": "https://cdn.example.com/...",
-      "lastUpdated": "2024-01-15T10:30:00Z",
-      "metadata": {
-        "trending": true,
-        "bestseller": true,
-        "newRelease": false
-      }
+      "metadata": {}
     }
   ]
 }
@@ -309,10 +336,12 @@ curl -X GET "http://localhost:8000/api/products/?niche=Wallpaper&region=US&minHy
 ```typescript
 const fetchProducts = async (filters: {
   niche?: string;
+  platform?: string;
   region?: string;
-  minHype?: number;
   limit?: number;
   offset?: number;
+  q?: string;
+  sort?: string;
 }) => {
   const params = new URLSearchParams();
   Object.entries(filters).forEach(([key, value]) => {
@@ -328,6 +357,7 @@ const fetchProducts = async (filters: {
     }
   );
   
+  if (!response.ok) throw new Error('Failed to fetch products');
   return response.json();
 };
 ```
@@ -338,50 +368,30 @@ const fetchProducts = async (filters: {
 
 **Endpoint:** `GET /api/products/{product_id}`
 
-**Headers:**
-```
-Authorization: Bearer <access_token>
-```
-
 **Response (200):**
 ```json
 {
   "id": "507f1f77bcf86cd799439011",
-  "title": "Modern Minimalist Wallpaper",
-  "description": "High-quality, trendy wallpaper perfect for offices",
+  "title": "Wireless Bluetooth Headphones",
   "platform": "amazon",
-  "niche": "Wallpaper",
+  "niche": "electronics",
   "region": "US",
   "hypeScore": 92,
   "growthWeekly": 5.2,
   "growthMonthly": 21.3,
-  "growthYearly": 156.8,
-  "averageRating": 4.8,
-  "reviewCount": 1250,
-  "price": 29.99,
-  "url": "https://amazon.com/...",
-  "imageUrl": "https://cdn.example.com/...",
-  "lastUpdated": "2024-01-15T10:30:00Z",
-  "metadata": { "trending": true }
+  "metadata": {}
 }
 ```
-
-**Error Responses:**
-- `404 Not Found` — Product does not exist
-- `401 Unauthorized` — Missing or invalid access token
 
 ---
 
 ## 💾 Saved Searches
 
+All saved search endpoints require authentication.
+
 ### List User's Saved Searches
 
 **Endpoint:** `GET /api/saved-searches/`
-
-**Headers:**
-```
-Authorization: Bearer <access_token>
-```
 
 **Response (200):**
 ```json
@@ -389,22 +399,15 @@ Authorization: Bearer <access_token>
   {
     "id": "507f1f77bcf86cd799439012",
     "userId": "507f1f77bcf86cd799439011",
-    "name": "Premium US Wallpapers",
-    "description": "High-hype, trending wallpapers in the US market",
-    "filters": {
-      "niche": "Wallpaper",
+    "name": "Premium Electronics",
+    "params": {
+      "niche": "electronics",
       "region": "US",
-      "minHype": 80,
-      "sortBy": "hypeScore",
-      "order": "desc"
+      "platform": "amazon"
     },
-    "resultCount": 45,
-    "resultSnapshot": [
-      { "id": "...", "title": "...", "hypeScore": 92 }
-    ],
-    "createdAt": "2024-01-10T15:30:00Z",
-    "updatedAt": "2024-01-15T10:30:00Z",
-    "lastRun": "2024-01-15T10:30:00Z"
+    "notes": "Search for trending electronics",
+    "resultSnapshot": [],
+    "createdAt": "2024-01-10T15:30:00Z"
   }
 ]
 ```
@@ -418,28 +421,74 @@ Authorization: Bearer <access_token>
 **Request:**
 ```json
 {
-  "name": "Premium US Wallpapers",
-  "description": "High-hype, trending wallpapers in the US market",
-  "filters": {
-    "niche": "Wallpaper",
+  "name": "Premium Electronics",
+  "params": {
+    "niche": "electronics",
     "region": "US",
-    "minHype": 80,
-    "sortBy": "hypeScore"
-  }
+    "platform": "amazon",
+    "limit": 50
+  },
+  "notes": "Search for trending electronics",
+  "snapshot": []
 }
 ```
 
-**Response (201):** Same as list response item
+**Response (201):**
+```json
+{
+  "id": "507f1f77bcf86cd799439012",
+  "userId": "507f1f77bcf86cd799439011",
+  "name": "Premium Electronics",
+  "params": { "niche": "electronics", "region": "US", "platform": "amazon", "limit": 50 },
+  "notes": "Search for trending electronics",
+  "resultSnapshot": [],
+  "createdAt": "2024-01-10T15:30:00Z"
+}
+```
+
+**Frontend Implementation:**
+```typescript
+const createSavedSearch = async (searchData: {
+  name: string;
+  params: Record<string, any>;
+  notes?: string;
+  snapshot?: any[];
+}) => {
+  const response = await fetch(
+    'http://localhost:8000/api/saved-searches/',
+    {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(searchData)
+    }
+  );
+  
+  if (!response.ok) throw new Error('Failed to create saved search');
+  return response.json();
+};
+```
 
 ---
 
-### Update Saved Search
+### Get Saved Search
 
-**Endpoint:** `PUT /api/saved-searches/{search_id}`
+**Endpoint:** `GET /api/saved-searches/{search_id}`
 
-**Request:** Same as create (all fields optional)
-
-**Response (200):** Updated search object
+**Response (200):**
+```json
+{
+  "id": "507f1f77bcf86cd799439012",
+  "userId": "507f1f77bcf86cd799439011",
+  "name": "Premium Electronics",
+  "params": { "niche": "electronics", "region": "US" },
+  "notes": "Search notes",
+  "resultSnapshot": [],
+  "createdAt": "2024-01-10T15:30:00Z"
+}
+```
 
 ---
 
@@ -447,28 +496,7 @@ Authorization: Bearer <access_token>
 
 **Endpoint:** `DELETE /api/saved-searches/{search_id}`
 
-**Response (200):**
-```json
-{ "message": "Saved search deleted successfully" }
-```
-
----
-
-### Get Search Results
-
-**Endpoint:** `GET /api/saved-searches/{search_id}/results`
-
-**Response (200):**
-```json
-{
-  "searchId": "507f1f77bcf86cd799439012",
-  "searchName": "Premium US Wallpapers",
-  "total": 45,
-  "limit": 50,
-  "offset": 0,
-  "items": [...]
-}
-```
+**Response (204):** Empty response body
 
 ---
 
@@ -489,9 +517,7 @@ X-Frame-Options: DENY
 X-XSS-Protection: 1; mode=block
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Referrer-Policy: strict-origin-when-cross-origin
-Cross-Origin-Opener-Policy: same-origin
-Cross-Origin-Resource-Policy: same-origin
-Content-Security-Policy: default-src 'self'; ...
+Content-Security-Policy: default-src 'self'
 ```
 
 ---
@@ -500,39 +526,33 @@ Content-Security-Policy: default-src 'self'; ...
 
 ### Standard Error Response
 
-All errors follow this format:
-
 ```json
 {
-  "detail": "Human-readable error message",
-  "status": 400,
-  "message": "Additional context (dev mode only)"
+  "detail": "Human-readable error message"
 }
 ```
 
 ### Common Error Codes
 
-| Code | Scenario | Example |
-|------|----------|---------|
-| **400** | Bad Request | Invalid query parameters, malformed JSON |
-| **401** | Unauthorized | Missing or expired access token |
-| **403** | Forbidden | Insufficient permissions (rate limited) |
-| **404** | Not Found | Resource does not exist |
-| **409** | Conflict | Email already registered |
-| **422** | Validation Error | Invalid request body |
-| **429** | Too Many Requests | Rate limit exceeded |
-| **500** | Server Error | Unexpected error (logged server-side) |
+| Code | Scenario |
+|------|----------|
+| **400** | Bad Request / Invalid data |
+| **401** | Unauthorized / Missing token |
+| **403** | Forbidden / Not authorized |
+| **404** | Not Found / Resource doesn't exist |
+| **409** | Conflict / Email already exists |
+| **422** | Validation Error |
+| **429** | Rate Limit Exceeded |
+| **500** | Server Error |
 
 **Rate Limiting:**
 - Auth endpoints: 5 requests/minute
-- Password reset: 3 requests/hour
-- Other endpoints: 60 requests/minute
+- Password reset: 3 requests/15 minutes
+- Other endpoints: No limit (per user activity tracking)
 
 ---
 
 ## 📝 Frontend .env Configuration
-
-Create `.env.local` in your React project:
 
 ```env
 # API Configuration
@@ -540,14 +560,10 @@ VITE_API_BASE_URL=http://localhost:8000
 VITE_API_TIMEOUT=10000
 
 # Google OAuth
-VITE_GOOGLE_CLIENT_ID=923334824395-4l0ii8019adnnvl38nu1ips5sp3pklf6.apps.googleusercontent.com
+VITE_GOOGLE_CLIENT_ID=your_google_client_id_here
 
 # Feature Flags
 VITE_ENABLE_GOOGLE_LOGIN=true
-VITE_ENABLE_EMAIL_VERIFICATION=true
-
-# Analytics
-VITE_SENTRY_DSN=https://...@sentry.io/...
 ```
 
 ---

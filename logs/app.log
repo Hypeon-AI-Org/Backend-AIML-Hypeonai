@@ -57,3 +57,1427 @@
 2025-11-13 02:47:40 | INFO | app.routes.auth:forgot_pass:368 | Password reset email sent to: user1@example.com
 2025-11-13 02:48:35 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
 2025-11-13 02:50:27 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 11:31:57 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 11:32:01 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 11:32:01 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 11:32:02 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 11:32:02 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 11:32:03 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 11:32:03 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 11:32:03 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 11:32:03 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 11:34:38 | INFO | app.routes.auth:signup:39 | Signup attempt for email: umar@hypeon.ai
+2025-11-13 11:34:41 | INFO | app.routes.auth:signup:58 | Successful signup for user: 691574f9aaa47f83f6b05ee1 (umar@hypeon.ai)
+2025-11-13 11:34:41 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691574f9aaa47f83f6b05ee2, User: 691574f9aaa47f83f6b05ee1, Action: signup
+2025-11-13 11:34:41 | INFO | app.routes.auth:signup:82 | Tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 11:37:29 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 11:37:29 | INFO | app.routes.auth:refresh_token_endpoint:254 | Refresh token request received
+2025-11-13 11:37:30 | INFO | app.routes.auth:refresh_token_endpoint:281 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 11:37:30 | INFO | app.routes.auth:refresh_token_endpoint:299 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 11:37:30 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 11:49:45 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 11:56:27 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 12:15:24 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:15:29 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:15:29 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:15:30 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:15:31 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:15:31 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:15:32 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:15:32 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:15:32 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:16:21 | INFO | app.routes.auth:signup:39 | Signup attempt for email: admin@hypeon.ai
+2025-11-13 12:16:23 | INFO | app.routes.auth:signup:58 | Successful signup for user: 69157ebea98614754b76142e (admin@hypeon.ai)
+2025-11-13 12:16:23 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69157ebfa98614754b76142f, User: 69157ebea98614754b76142e, Action: signup
+2025-11-13 12:16:23 | INFO | app.routes.auth:signup:82 | Tokens generated for user: 69157ebea98614754b76142e
+2025-11-13 12:18:47 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 12:18:47 | INFO | app.routes.auth:refresh_token_endpoint:254 | Refresh token request received
+2025-11-13 12:18:47 | INFO | app.routes.auth:refresh_token_endpoint:281 | Valid refresh token for user: 69157ebea98614754b76142e
+2025-11-13 12:18:47 | INFO | app.routes.auth:refresh_token_endpoint:299 | New tokens generated for user: 69157ebea98614754b76142e
+2025-11-13 12:18:48 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 12:21:27 | INFO | app.routes.auth:login:102 | Login attempt for email: admin@hypeon.ai
+2025-11-13 12:21:28 | INFO | app.routes.auth:login:115 | Successful login for user: 69157ebea98614754b76142e (admin@hypeon.ai)
+2025-11-13 12:21:28 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69157ff0a98614754b761430, User: 69157ebea98614754b76142e, Action: login
+2025-11-13 12:21:29 | INFO | app.routes.auth:login:139 | Last login updated for user: 69157ebea98614754b76142e
+2025-11-13 12:21:29 | INFO | app.routes.auth:login:143 | Tokens generated for user: 69157ebea98614754b76142e
+2025-11-13 12:22:19 | INFO | app.routes.auth:login:102 | Login attempt for email: admin@hypeon.ai
+2025-11-13 12:22:20 | INFO | app.routes.auth:login:115 | Successful login for user: 69157ebea98614754b76142e (admin@hypeon.ai)
+2025-11-13 12:22:21 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69158024a98614754b761431, User: 69157ebea98614754b76142e, Action: login
+2025-11-13 12:22:21 | INFO | app.routes.auth:login:139 | Last login updated for user: 69157ebea98614754b76142e
+2025-11-13 12:22:21 | INFO | app.routes.auth:login:143 | Tokens generated for user: 69157ebea98614754b76142e
+2025-11-13 12:23:22 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 12:23:22 | INFO | app.routes.auth:refresh_token_endpoint:254 | Refresh token request received
+2025-11-13 12:23:23 | INFO | app.routes.auth:refresh_token_endpoint:281 | Valid refresh token for user: 69157ebea98614754b76142e
+2025-11-13 12:23:23 | INFO | app.routes.auth:refresh_token_endpoint:299 | New tokens generated for user: 69157ebea98614754b76142e
+2025-11-13 12:23:23 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Invalid token format
+2025-11-13 12:25:21 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:25:25 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:25:26 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:25:26 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:25:26 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:25:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:25:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:25:28 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:25:28 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:30:20 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:30:25 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:30:26 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:30:26 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:30:26 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:30:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:30:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:30:27 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:30:27 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:34:22 | INFO | app.routes.auth:login:102 | Login attempt for email: admin@hypeon.ai
+2025-11-13 12:34:23 | INFO | app.routes.auth:login:115 | Successful login for user: 69157ebea98614754b76142e (admin@hypeon.ai)
+2025-11-13 12:34:24 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691582f78f64c121ca28d55d, User: 69157ebea98614754b76142e, Action: login
+2025-11-13 12:34:24 | INFO | app.routes.auth:login:139 | Last login updated for user: 69157ebea98614754b76142e
+2025-11-13 12:34:24 | INFO | app.routes.auth:login:143 | Tokens generated for user: 69157ebea98614754b76142e
+2025-11-13 12:40:25 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:40:30 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:40:30 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:40:31 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:40:32 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:40:32 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:40:33 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:40:33 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:40:33 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:44:45 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:44:49 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:44:49 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:44:50 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:44:50 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:44:51 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:44:51 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:44:51 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:44:51 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:46:40 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 12:46:42 | INFO | app.routes.auth:signup:58 | Successful signup for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:46:43 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691585dac31f17d7af5937b9, User: 691585dac31f17d7af5937b8, Action: signup
+2025-11-13 12:46:43 | INFO | app.routes.auth:signup:82 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:49:47 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:49:52 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:49:52 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:49:53 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:49:53 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:49:53 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:49:54 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:49:54 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:49:54 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:50:21 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 12:50:22 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 12:50:22 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 12:50:25 | INFO | app.routes.auth:login:102 | Login attempt for email: test@example.com
+2025-11-13 12:50:26 | INFO | app.routes.auth:login:115 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:50:26 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691586baf8ffce3f6255a2e2, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 12:50:27 | INFO | app.routes.auth:login:139 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:50:27 | INFO | app.routes.auth:login:143 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:50:33 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 500, Detail: Internal error: 3 validation errors for UserInDB
+googleId
+  Field required [type=missing, input_value={'_id': ObjectId('691585d...1585dac31f17d7af5937b8'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+resetPasswordToken
+  Field required [type=missing, input_value={'_id': ObjectId('691585d...1585dac31f17d7af5937b8'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+resetPasswordExpires
+  Field required [type=missing, input_value={'_id': ObjectId('691585d...1585dac31f17d7af5937b8'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2025-11-13 12:50:36 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 12:50:39 | INFO | app.routes.auth:refresh_token_endpoint:254 | Refresh token request received
+2025-11-13 12:50:40 | INFO | app.routes.auth:refresh_token_endpoint:281 | Valid refresh token for user: 691585dac31f17d7af5937b8
+2025-11-13 12:50:40 | INFO | app.routes.auth:refresh_token_endpoint:299 | New tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:50:43 | INFO | app.routes.auth:login:102 | Login attempt for email: test@example.com
+2025-11-13 12:50:44 | INFO | app.routes.auth:login:115 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:50:44 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691586ccf8ffce3f6255a2e3, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 12:50:45 | INFO | app.routes.auth:login:139 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:50:45 | INFO | app.routes.auth:login:143 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:03 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 12:52:07 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 12:52:07 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 12:52:08 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 12:52:08 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 12:52:09 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 12:52:09 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 12:52:09 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 12:52:09 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 12:52:09 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 12:52:10 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 12:52:10 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 12:52:13 | INFO | app.routes.auth:login:102 | Login attempt for email: test@example.com
+2025-11-13 12:52:14 | INFO | app.routes.auth:login:115 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:52:15 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915872685458fea2f4233cc, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 12:52:15 | INFO | app.routes.auth:login:139 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:15 | INFO | app.routes.auth:login:143 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:22 | INFO | app.routes.auth:get_me:425 | Get /me request for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:22 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915872e85458fea2f4233cd, User: 691585dac31f17d7af5937b8, Action: view_profile
+2025-11-13 12:52:25 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 12:52:28 | INFO | app.routes.auth:refresh_token_endpoint:254 | Refresh token request received
+2025-11-13 12:52:29 | INFO | app.routes.auth:refresh_token_endpoint:281 | Valid refresh token for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:29 | INFO | app.routes.auth:refresh_token_endpoint:299 | New tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:32 | INFO | app.routes.auth:login:102 | Login attempt for email: test@example.com
+2025-11-13 12:52:33 | INFO | app.routes.auth:login:115 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:52:33 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915873985458fea2f4233ce, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 12:52:34 | INFO | app.routes.auth:login:139 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:52:34 | INFO | app.routes.auth:login:143 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:02 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 12:54:02 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 12:54:02 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 12:54:05 | INFO | app.routes.auth:login:102 | Login attempt for email: test@example.com
+2025-11-13 12:54:07 | INFO | app.routes.auth:login:115 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:54:07 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915879785458fea2f4233cf, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 12:54:07 | INFO | app.routes.auth:login:139 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:07 | INFO | app.routes.auth:login:143 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:14 | INFO | app.routes.auth:get_me:425 | Get /me request for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915879e85458fea2f4233d0, User: 691585dac31f17d7af5937b8, Action: view_profile
+2025-11-13 12:54:17 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 12:54:20 | INFO | app.routes.auth:refresh_token_endpoint:254 | Refresh token request received
+2025-11-13 12:54:21 | INFO | app.routes.auth:refresh_token_endpoint:281 | Valid refresh token for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:21 | INFO | app.routes.auth:refresh_token_endpoint:299 | New tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:24 | INFO | app.routes.auth:login:102 | Login attempt for email: test@example.com
+2025-11-13 12:54:25 | INFO | app.routes.auth:login:115 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 12:54:25 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691587a985458fea2f4233d1, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 12:54:26 | INFO | app.routes.auth:login:139 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 12:54:26 | INFO | app.routes.auth:login:143 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 13:01:50 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 13:01:54 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 13:01:55 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 13:01:55 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 13:01:55 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 13:01:56 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 13:01:56 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 13:01:57 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 13:01:57 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 13:04:09 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 13:04:13 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 13:04:14 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 13:04:14 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 13:04:15 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 13:04:15 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 13:04:15 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 13:04:16 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 13:04:16 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 13:13:22 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 13:13:22 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 13:13:22 | WARNING | main:http_exception_handler:151 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 13:13:28 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test1@example.com
+2025-11-13 13:13:29 | INFO | app.routes.auth:signup:58 | Successful signup for user: 69158c204e97cd3606b88fd2 (test1@example.com)
+2025-11-13 13:13:29 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69158c214e97cd3606b88fd3, User: 69158c204e97cd3606b88fd2, Action: signup
+2025-11-13 13:13:29 | INFO | app.routes.auth:signup:81 | Tokens generated for user: 69158c204e97cd3606b88fd2
+2025-11-13 13:13:30 | INFO | app.routes.products:list_products:33 | Product list request - niche: None, platform: None, region: None, query: None
+2025-11-13 13:13:30 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69158c224e97cd3606b88fd4, User: 69158c204e97cd3606b88fd2, Action: search
+2025-11-13 13:13:31 | INFO | app.routes.products:list_products:65 | Found 3 products matching criteria
+2025-11-13 13:13:31 | INFO | app.routes.products:list_products:77 | Retrieved 3 products (limit: 50, offset: 0)
+2025-11-13 13:13:31 | INFO | app.routes.products:list_products:33 | Product list request - niche: None, platform: None, region: None, query: None
+2025-11-13 13:13:32 | INFO | app.routes.saved_searches:list_saved_searches:34 | Listing saved searches for user: 69158c204e97cd3606b88fd2
+2025-11-13 13:13:32 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69158c234e97cd3606b88fd5, User: 69158c204e97cd3606b88fd2, Action: search
+2025-11-13 13:13:32 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69158c244e97cd3606b88fd6, User: 69158c204e97cd3606b88fd2, Action: list_saved_searches
+2025-11-13 13:13:32 | INFO | app.routes.products:list_products:65 | Found 3 products matching criteria
+2025-11-13 13:13:32 | INFO | app.routes.products:list_products:77 | Retrieved 3 products (limit: 50, offset: 0)
+2025-11-13 13:13:32 | INFO | app.routes.saved_searches:list_saved_searches:44 | Retrieved 0 saved searches for user: 69158c204e97cd3606b88fd2
+2025-11-13 13:13:33 | INFO | app.routes.saved_searches:list_saved_searches:34 | Listing saved searches for user: 69158c204e97cd3606b88fd2
+2025-11-13 13:13:33 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69158c254e97cd3606b88fd7, User: 69158c204e97cd3606b88fd2, Action: list_saved_searches
+2025-11-13 13:13:33 | INFO | app.routes.saved_searches:list_saved_searches:44 | Retrieved 0 saved searches for user: 69158c204e97cd3606b88fd2
+2025-11-13 15:11:32 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:11:36 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:11:36 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 15:11:37 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 15:11:37 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 15:11:38 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 15:11:38 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 15:11:38 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 15:11:38 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 15:11:56 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 15:11:56 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 15:11:56 | WARNING | main:http_exception_handler:151 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 15:11:58 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:11:59 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:12:00 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915a7e7e3dfdd396249e6a2, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:12:00 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:12:00 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:12:04 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:12:05 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:12:05 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915a7ede3dfdd396249e6a3, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:12:06 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:12:06 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:13:45 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 15:13:46 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 15:13:46 | WARNING | main:http_exception_handler:151 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 15:13:49 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:13:50 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:13:50 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915a856e3dfdd396249e6a4, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:13:51 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:13:51 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:13:57 | INFO | app.routes.auth:get_me:420 | Get /me request for user: 691585dac31f17d7af5937b8
+2025-11-13 15:13:58 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915a85de3dfdd396249e6a5, User: 691585dac31f17d7af5937b8, Action: view_profile
+2025-11-13 15:14:01 | WARNING | main:http_exception_handler:151 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 15:14:04 | INFO | app.routes.auth:refresh_token_endpoint:251 | Refresh token request received
+2025-11-13 15:14:04 | INFO | app.routes.auth:refresh_token_endpoint:278 | Valid refresh token for user: 691585dac31f17d7af5937b8
+2025-11-13 15:14:04 | INFO | app.routes.auth:refresh_token_endpoint:295 | New tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:14:07 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:14:08 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:14:09 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915a868e3dfdd396249e6a6, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:14:09 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:14:09 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:15:45 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:16:05 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:16:11 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:16:11 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 15:16:12 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 15:16:13 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 15:16:13 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 15:16:14 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 15:16:14 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 15:16:14 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 15:17:11 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:17:16 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:17:16 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 15:17:17 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 15:17:17 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 15:17:18 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 15:17:18 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 15:17:18 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 15:17:18 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 15:17:44 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:17:49 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:17:49 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 15:17:49 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 15:17:50 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 15:17:50 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 15:17:50 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 15:17:51 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 15:17:51 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 15:18:34 | INFO | app.core.events:startup:29 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:18:39 | INFO | app.core.events:startup:47 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:18:39 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-13 15:18:40 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-13 15:18:40 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-13 15:18:41 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-13 15:18:41 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-13 15:18:42 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-13 15:18:42 | INFO | app.core.events:startup:51 | ✅ Database indexes created successfully
+2025-11-13 15:20:37 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:20:42 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:20:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:20:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:20:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:20:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:20:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:20:45 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:20:45 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:20:47 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 15:21:13 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:21:17 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:21:18 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:21:18 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:21:19 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:21:19 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:21:20 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:21:20 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:21:20 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:21:26 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:21:31 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:21:33 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:21:34 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:21:35 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:21:35 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:21:35 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:21:36 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:21:36 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:21:59 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 15:23:16 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:23:21 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:23:22 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:23:22 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:23:23 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:23:23 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:23:23 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:23:24 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:23:24 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:23:37 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:23:42 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:23:42 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:23:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:23:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:23:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:23:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:23:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:23:44 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:24:50 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 15:24:50 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 15:24:50 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 15:24:53 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:24:55 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:24:55 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915aaeffaccb98bc1cb1862, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:24:56 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:24:56 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:25:02 | INFO | app.routes.auth:get_me:424 | Get /me request for user: 691585dac31f17d7af5937b8
+2025-11-13 15:25:02 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915aaf6faccb98bc1cb1863, User: 691585dac31f17d7af5937b8, Action: view_profile
+2025-11-13 15:25:06 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 403, Detail: Not authenticated
+2025-11-13 15:25:09 | INFO | app.routes.auth:refresh_token_endpoint:251 | Refresh token request received
+2025-11-13 15:25:09 | INFO | app.routes.auth:refresh_token_endpoint:278 | Valid refresh token for user: 691585dac31f17d7af5937b8
+2025-11-13 15:25:09 | INFO | app.routes.auth:refresh_token_endpoint:295 | New tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:25:12 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:25:13 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:25:13 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915ab01faccb98bc1cb1864, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:25:14 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:25:14 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:25:27 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 15:25:36 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:25:42 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:25:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:25:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:25:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:25:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:25:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:25:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:25:44 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:27:37 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 15:27:43 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:27:48 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:27:48 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:27:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:27:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:27:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:27:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:27:51 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:27:51 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:28:07 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 15:28:14 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 15:28:19 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 15:28:20 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 15:28:20 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 15:28:21 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 15:28:21 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 15:28:22 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 15:28:22 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 15:28:22 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 15:28:22 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test@example.com
+2025-11-13 15:28:23 | WARNING | app.routes.auth:signup:44 | Signup failed - email already in use: test@example.com
+2025-11-13 15:28:23 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 409, Detail: Email already in use
+2025-11-13 15:28:26 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:28:28 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:28:28 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915abc476b7ace3bdd0114e, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:28:29 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:29 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:35 | INFO | app.routes.auth:get_me:424 | Get /me request for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:36 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915abcb76b7ace3bdd0114f, User: 691585dac31f17d7af5937b8, Action: view_profile
+2025-11-13 15:28:39 | INFO | app.routes.auth:get_me:424 | Get /me request for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:39 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915abcf76b7ace3bdd01150, User: 691585dac31f17d7af5937b8, Action: view_profile
+2025-11-13 15:28:43 | INFO | app.routes.auth:refresh_token_endpoint:251 | Refresh token request received
+2025-11-13 15:28:43 | INFO | app.routes.auth:refresh_token_endpoint:278 | Valid refresh token for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:43 | INFO | app.routes.auth:refresh_token_endpoint:295 | New tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:46 | INFO | app.routes.auth:login:101 | Login attempt for email: test@example.com
+2025-11-13 15:28:47 | INFO | app.routes.auth:login:114 | Successful login for user: 691585dac31f17d7af5937b8 (test@example.com)
+2025-11-13 15:28:47 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915abd776b7ace3bdd01151, User: 691585dac31f17d7af5937b8, Action: login
+2025-11-13 15:28:47 | INFO | app.routes.auth:login:137 | Last login updated for user: 691585dac31f17d7af5937b8
+2025-11-13 15:28:47 | INFO | app.routes.auth:login:141 | Tokens generated for user: 691585dac31f17d7af5937b8
+2025-11-13 16:10:56 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 16:17:54 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 16:17:58 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 16:17:58 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 16:17:59 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 16:17:59 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 16:17:59 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 16:18:00 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 16:18:00 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 16:18:00 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 16:23:26 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 16:23:32 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 16:23:35 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 16:23:36 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 16:23:36 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 16:23:36 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 16:23:37 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 16:23:37 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 16:23:37 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 16:23:37 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 16:26:44 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 16:26:52 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 16:26:56 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 16:26:56 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 16:26:56 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 16:26:57 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 16:26:57 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 16:26:57 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 16:26:58 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 16:26:58 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 16:36:02 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 16:52:46 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 16:52:50 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 16:52:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 16:52:51 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 16:52:51 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 16:52:51 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 16:52:52 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 16:52:52 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 16:52:52 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 17:54:21 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 17:54:26 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 17:54:29 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 17:54:30 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 17:54:30 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 17:54:31 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 17:54:31 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 17:54:31 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 17:54:32 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 17:54:32 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 17:54:35 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 17:54:42 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 17:54:46 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 17:54:47 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 17:54:47 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 17:54:47 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 17:54:48 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 17:54:48 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 17:54:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 17:54:49 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 17:59:41 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 17:59:44 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 17:59:47 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 17:59:48 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 17:59:48 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 17:59:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 17:59:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 17:59:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 17:59:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 17:59:50 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 18:07:25 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 18:07:33 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 18:07:37 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 18:07:38 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 18:07:38 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 18:07:38 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 18:07:39 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 18:07:39 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 18:07:39 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 18:07:39 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 18:10:02 | INFO | app.routes.auth:signup:39 | Signup attempt for email: testuser123@example.com
+2025-11-13 18:10:04 | INFO | app.routes.auth:signup:58 | Successful signup for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:10:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d1a48f9f883b29b2e405, User: 6915d1a38f9f883b29b2e404, Action: signup
+2025-11-13 18:10:04 | INFO | app.routes.auth:signup:92 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:10:51 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:10:51 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:10:58 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:10:59 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:10:59 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d1db8f9f883b29b2e406, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:11:00 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:11:00 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:11:39 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:11:39 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:11:50 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 18:11:51 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umarfarook1yt@gmail.com
+2025-11-13 18:11:51 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umarfarook1yt@gmail.com
+2025-11-13 18:11:51 | INFO | app.routes.auth:google_login:212 | Creating new user for email: umarfarook1yt@gmail.com
+2025-11-13 18:11:52 | INFO | app.routes.auth:google_login:217 | New user created with ID: 6915d20f8f9f883b29b2e407
+2025-11-13 18:11:52 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d2108f9f883b29b2e408, User: 6915d20f8f9f883b29b2e407, Action: signup
+2025-11-13 18:11:52 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:13:22 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:13:22 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:13:29 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:13:30 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:13:30 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d2728f9f883b29b2e409, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:13:30 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:13:30 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:16:28 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 18:16:29 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umarfarook1yt@gmail.com
+2025-11-13 18:16:29 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umarfarook1yt@gmail.com
+2025-11-13 18:16:29 | INFO | app.routes.auth:google_login:234 | Existing user logged in with ID: 6915d20f8f9f883b29b2e407
+2025-11-13 18:16:30 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d3258f9f883b29b2e40a, User: 6915d20f8f9f883b29b2e407, Action: login
+2025-11-13 18:16:30 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:20:52 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:20:52 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:20:52 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:20:52 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:20:52 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:20:52 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:20:52 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:20:53 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:20:53 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:20:53 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:20:53 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:20:53 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:20:53 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:20:53 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:20:53 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:20:53 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:21:12 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:21:13 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:22:37 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:22:38 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:22:38 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:22:45 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:22:46 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:22:46 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d49e8f9f883b29b2e40b, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:22:47 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:22:47 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:23:24 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:23:24 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:23:34 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:23:34 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:23:35 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d4ce8f9f883b29b2e40c, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:23:35 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:23:35 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:24:18 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:24:18 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:24:18 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:24:18 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:24:18 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:24:18 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:24:20 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:24:20 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:24:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:24:20 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:24:20 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:24:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:24:21 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:24:21 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:24:21 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:24:21 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:24:22 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:24:33 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:24:34 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:24:34 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d50a8f9f883b29b2e40d, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:24:34 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:24:34 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:24:46 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:25:24 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 18:25:31 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 18:25:35 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 18:25:35 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 18:25:35 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 18:25:36 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 18:25:36 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 18:25:37 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 18:25:37 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 18:25:37 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 18:25:55 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:25:55 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:25:55 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:25:55 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:25:55 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:25:55 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:25:56 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:25:56 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:25:56 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:25:56 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:25:56 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:25:56 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:25:58 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:25:58 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:25:58 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:25:58 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:26:00 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:26:08 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:26:09 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:26:09 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d56969dc3bf5e5220817, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:26:09 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:26:09 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:26:15 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:28:43 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 18:28:48 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 18:28:52 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 18:28:53 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 18:28:53 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 18:28:54 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 18:28:54 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 18:28:54 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 18:28:55 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 18:28:55 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 18:29:06 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:29:06 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:29:06 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:29:06 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:29:06 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:29:06 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:29:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:29:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:29:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:29:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:29:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:29:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:29:09 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:29:09 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:29:09 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:29:09 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:29:11 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:29:32 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:29:33 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:29:33 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d63567306d526de7f9f9, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:29:34 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:29:34 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:29:44 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:33:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:33:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:33:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:33:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:33:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:33:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:33:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:33:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:33:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:33:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:33:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:33:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:33:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:33:09 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:33:09 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:33:09 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:33:34 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:33:52 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:33:52 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:33:53 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d73867306d526de7f9fa, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:33:53 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:33:53 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:34:00 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:34:47 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 18:35:01 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 18:35:05 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 18:35:05 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 18:35:06 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 18:35:06 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 18:35:07 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 18:35:07 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 18:35:08 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 18:35:08 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 18:35:21 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:35:21 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:35:21 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:35:22 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:35:22 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:35:22 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:35:22 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:35:22 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:35:22 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:35:23 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:35:23 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:35:23 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:35:23 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:35:23 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:35:23 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:35:23 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:35:40 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:35:43 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:35:43 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d7a7cd9e9583c2d23adc, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:35:44 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:35:44 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:35:50 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:39:45 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 18:39:50 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 18:39:54 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 18:39:55 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 18:39:55 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 18:39:56 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 18:39:56 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 18:39:57 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 18:39:57 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 18:39:57 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 18:40:11 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:40:12 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:40:12 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:40:28 | INFO | app.routes.auth:login:112 | Login attempt for email: testuser123@example.com
+2025-11-13 18:40:29 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d1a38f9f883b29b2e404 (testuser123@example.com)
+2025-11-13 18:40:29 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d8c572972949a1f5af3d, User: 6915d1a38f9f883b29b2e404, Action: login
+2025-11-13 18:40:29 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:40:29 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:40:47 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:40:47 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:40:47 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d1a38f9f883b29b2e404
+2025-11-13 18:41:37 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:41:37 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:42:10 | INFO | app.routes.auth:signup:39 | Signup attempt for email: test0@ex.com
+2025-11-13 18:42:11 | INFO | app.routes.auth:signup:58 | Successful signup for user: 6915d92b72972949a1f5af3e (test0@ex.com)
+2025-11-13 18:42:11 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d92b72972949a1f5af3f, User: 6915d92b72972949a1f5af3e, Action: signup
+2025-11-13 18:42:11 | INFO | app.routes.auth:signup:92 | Tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:42:27 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:42:28 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:42:28 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:42:55 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:42:55 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:43:05 | INFO | app.routes.auth:login:112 | Login attempt for email: test0@ex.com
+2025-11-13 18:43:06 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d92b72972949a1f5af3e (test0@ex.com)
+2025-11-13 18:43:06 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d96272972949a1f5af40, User: 6915d92b72972949a1f5af3e, Action: login
+2025-11-13 18:43:07 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:43:07 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:43:14 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:43:14 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:43:14 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 18:44:05 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 18:44:05 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 18:44:08 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:44:08 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:44:08 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:44:09 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:44:09 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:44:09 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:44:10 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:44:10 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:44:10 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:44:10 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:44:10 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:44:10 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:44:11 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:44:11 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:44:11 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:44:11 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:44:13 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:45:36 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 18:45:37 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umarfarook1yt@gmail.com
+2025-11-13 18:45:37 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umarfarook1yt@gmail.com
+2025-11-13 18:45:37 | INFO | app.routes.auth:google_login:234 | Existing user logged in with ID: 6915d20f8f9f883b29b2e407
+2025-11-13 18:45:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915d9f972972949a1f5af41, User: 6915d20f8f9f883b29b2e407, Action: login
+2025-11-13 18:45:38 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:45:42 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:45:43 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:45:43 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:49:19 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:49:19 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:49:19 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:49:19 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:49:19 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:49:19 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:49:19 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:49:20 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:49:20 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:49:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:49:20 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:49:20 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:49:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:49:20 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:49:20 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:49:20 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 18:51:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:51:43 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:51:43 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:51:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:51:43 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:51:43 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:51:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:51:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:51:43 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:51:43 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:51:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 18:51:43 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 18:51:43 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 18:51:44 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:51:44 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d20f8f9f883b29b2e407
+2025-11-13 18:51:44 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 19:20:31 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 19:20:31 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 19:42:57 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 19:43:05 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 19:43:09 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 19:43:10 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 19:43:10 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 19:43:11 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 19:43:11 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 19:43:11 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 19:43:12 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 19:43:12 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 20:01:54 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:01:54 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 20:01:54 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 20:01:54 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:01:54 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 20:01:54 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 20:01:55 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:01:55 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 20:01:55 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 20:01:55 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:01:55 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 20:01:55 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 20:01:57 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:01:57 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 20:01:57 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 20:01:57 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 20:01:57 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-13 20:03:38 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 20:16:04 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 20:16:07 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 20:16:08 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 20:16:08 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 20:16:09 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 20:16:09 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 20:16:09 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 20:16:10 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 20:16:10 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 20:16:39 | INFO | app.routes.auth:login:112 | Login attempt for email: test0@ex.com
+2025-11-13 20:16:40 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d92b72972949a1f5af3e (test0@ex.com)
+2025-11-13 20:16:40 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915ef509cd7c718c463931a, User: 6915d92b72972949a1f5af3e, Action: login
+2025-11-13 20:16:40 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:16:40 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:17:01 | INFO | app.routes.products:list_products:33 | Product list request - niche: Fitness, platform: None, region: US, query: None
+2025-11-13 20:17:01 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915ef659cd7c718c463931b, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:17:02 | INFO | app.routes.products:list_products:65 | Found 1 products matching criteria
+2025-11-13 20:17:02 | INFO | app.routes.products:list_products:77 | Retrieved 1 products (limit: 10, offset: 0)
+2025-11-13 20:17:06 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:17:06 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:17:06 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:17:06 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:17:06 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915ef6a9cd7c718c463931c, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:17:07 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:17:07 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:17:07 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:17:08 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915ef6b9cd7c718c463931d, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:17:08 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:17:08 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:21:04 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:21:04 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:21:04 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:21:04 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:21:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f0589cd7c718c463931e, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:21:05 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:21:05 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:21:06 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:21:06 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f05a9cd7c718c463931f, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:21:06 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:21:07 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:26:54 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:26:55 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:26:55 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:26:55 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:26:55 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f1b79cd7c718c4639320, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:26:55 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:26:56 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:26:56 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:26:56 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f1b89cd7c718c4639321, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:26:57 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:26:57 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:36:17 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:36:17 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:36:17 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:36:17 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:36:17 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f3e99cd7c718c4639322, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:36:18 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:36:18 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:36:19 | INFO | app.routes.products:list_products:33 | Product list request - niche: fitness, platform: None, region: US, query: None
+2025-11-13 20:36:19 | INFO | app.routes.auth:logout:347 | Logout request received
+2025-11-13 20:36:19 | INFO | app.routes.auth:logout:369 | User logged out successfully
+2025-11-13 20:36:19 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f3eb9cd7c718c4639323, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:36:19 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:36:20 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:36:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Missing Authorization header
+2025-11-13 20:36:20 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:36:20 | WARNING | app.routes.auth:refresh_token_endpoint:289 | Refresh token not found in cookies
+2025-11-13 20:36:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-13 20:36:20 | WARNING | main:http_exception_handler:161 | HTTP Exception - Status: 401, Detail: Missing Authorization header
+2025-11-13 20:36:35 | INFO | app.routes.auth:login:112 | Login attempt for email: test0@ex.com
+2025-11-13 20:36:35 | INFO | app.routes.auth:login:125 | Successful login for user: 6915d92b72972949a1f5af3e (test0@ex.com)
+2025-11-13 20:36:36 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f3fb9cd7c718c4639324, User: 6915d92b72972949a1f5af3e, Action: login
+2025-11-13 20:36:36 | INFO | app.routes.auth:login:159 | Last login updated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:36:36 | INFO | app.routes.auth:login:163 | Tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:36:44 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:36:44 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f4049cd7c718c4639325, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:36:45 | INFO | app.routes.products:list_products:65 | Found 1 products matching criteria
+2025-11-13 20:36:45 | INFO | app.routes.products:list_products:77 | Retrieved 1 products (limit: 10, offset: 0)
+2025-11-13 20:39:05 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:39:06 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:39:06 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:39:09 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:39:09 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f4959cd7c718c4639326, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:39:10 | INFO | app.routes.products:list_products:65 | Found 1 products matching criteria
+2025-11-13 20:39:10 | INFO | app.routes.products:list_products:77 | Retrieved 1 products (limit: 10, offset: 0)
+2025-11-13 20:39:12 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:39:12 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:39:12 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:39:13 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 20:39:13 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f4999cd7c718c4639327, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:39:13 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:39:14 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:39:14 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 20:39:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f49a9cd7c718c4639328, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:39:14 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:39:15 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:39:15 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:39:15 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:39:15 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:39:20 | INFO | app.routes.products:list_products:33 | Product list request - niche: Carpets, platform: None, region: US, query: None
+2025-11-13 20:39:21 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f4a09cd7c718c4639329, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:39:21 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:39:21 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:40:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:40:43 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:40:43 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:41:00 | INFO | app.routes.products:list_products:33 | Product list request - niche: Paint, platform: None, region: US, query: None
+2025-11-13 20:41:00 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f5049cd7c718c463932a, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:41:00 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:41:01 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:42:32 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 20:42:42 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 20:42:46 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 20:42:46 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 20:42:46 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 20:42:47 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 20:42:47 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 20:42:47 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 20:42:48 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 20:42:48 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 20:43:22 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:43:23 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:43:23 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:43:35 | INFO | app.routes.products:list_products:33 | Product list request - niche: Paint, platform: None, region: US, query: None
+2025-11-13 20:43:35 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f59ff20956d9b97d5ce4, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:43:35 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:43:36 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:46:22 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:46:23 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:46:23 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:46:26 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:46:26 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f64af20956d9b97d5ce5, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:46:27 | INFO | app.routes.products:list_products:65 | Found 1 products matching criteria
+2025-11-13 20:46:27 | INFO | app.routes.products:list_products:77 | Retrieved 1 products (limit: 10, offset: 0)
+2025-11-13 20:46:38 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 20:46:45 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 20:46:49 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 20:46:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 20:46:49 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 20:46:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 20:46:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 20:46:50 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 20:46:51 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 20:46:51 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 20:54:00 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:54:01 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:54:01 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:54:04 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:54:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f8148ccd6514216f80cd, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:54:05 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 20:54:05 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 20:54:16 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:54:16 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:54:16 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:54:16 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 20:54:17 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f8208ccd6514216f80ce, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:54:17 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:54:17 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:55:36 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:55:36 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:55:36 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:55:55 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:55:56 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f8838ccd6514216f80cf, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:55:56 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 20:55:56 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 20:56:06 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:56:07 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 20:56:07 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:56:07 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:56:07 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f88f8ccd6514216f80d0, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:56:07 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 20:56:08 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 20:56:26 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:56:27 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f8a28ccd6514216f80d1, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:56:27 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 20:56:27 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 20:56:40 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:56:41 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:56:41 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:56:50 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:56:50 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f8ba8ccd6514216f80d2, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:56:50 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 20:56:51 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 20:56:55 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 20:56:56 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:56:56 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 20:56:56 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 20:56:57 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f8c08ccd6514216f80d3, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 20:56:57 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 20:56:57 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 21:01:01 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 21:01:01 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915f9b58ccd6514216f80d4, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 21:01:02 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 21:01:02 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 21:08:09 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 21:08:16 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:08:16 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:08:18 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 21:08:18 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915fb6a8ccd6514216f80d5, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 21:08:19 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 21:08:19 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 21:08:24 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 21:08:24 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:08:24 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:08:31 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 21:08:31 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915fb778ccd6514216f80d6, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 21:08:31 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 21:08:32 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 21:10:22 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 21:10:22 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:10:22 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:10:23 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 21:10:24 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:10:24 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:10:27 | INFO | app.routes.products:list_products:33 | Product list request - niche: Kitchen Gadgets, platform: None, region: US, query: None
+2025-11-13 21:10:28 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915fbeb8ccd6514216f80d7, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 21:10:28 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 21:10:28 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 21:11:17 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 21:11:17 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:11:17 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 6915d92b72972949a1f5af3e
+2025-11-13 21:11:22 | INFO | app.routes.products:list_products:33 | Product list request - niche: Kitchen Gadgets, platform: None, region: US, query: None
+2025-11-13 21:11:22 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6915fc228ccd6514216f80d8, User: 6915d92b72972949a1f5af3e, Action: search
+2025-11-13 21:11:23 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 21:11:23 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 21:12:13 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 21:12:18 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:12:24 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fc5bd5790ddf676139ec, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:12:24 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:12:26 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:12:31 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fc62d5790ddf676139ed, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:12:31 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:12:33 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:12:39 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fc6ad5790ddf676139ee, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:12:39 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:12:53 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:12:58 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fc7d5907d0387cb93406, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:12:58 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:13:00 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:13:05 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fc845907d0387cb93407, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:13:05 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:13:07 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:13:13 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fc8c5907d0387cb93408, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:13:13 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:14:54 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:15:00 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fcf6fd686e9832aa1ffe, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:15:00 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:15:02 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:15:07 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fcfefd686e9832aa1fff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:15:07 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:15:09 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:15:14 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fd05fd686e9832aa2000, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:15:14 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:16:51 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:16:58 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fd6dbfe463bf1b6aa408, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:16:58 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:17:00 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:17:06 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fd75bfe463bf1b6aa409, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:17:06 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:17:08 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:17:13 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fd7cbfe463bf1b6aa40a, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:17:13 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:19:05 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:19:10 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fdf122c32f94fa69ab99, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:19:10 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:19:12 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:19:18 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fdf922c32f94fa69ab9a, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:19:18 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:19:20 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:19:25 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915fe0022c32f94fa69ab9b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:19:25 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:23:39 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:23:44 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915ff0365af0935c29f676d, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:23:44 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:23:46 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:23:51 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915ff0a65af0935c29f676e, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:23:51 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:23:53 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:23:59 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915ff1165af0935c29f676f, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:23:59 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:26:38 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:26:45 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915ffb8441caa9d808191d8, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:26:45 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:26:47 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:26:55 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915ffc1441caa9d808191d9, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:26:55 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:26:57 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:27:02 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6915ffc9441caa9d808191da, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:27:02 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:33:13 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:33:19 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6916014197fcdc1655be1fbe, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:33:19 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:33:21 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:33:26 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6916014997fcdc1655be1fbf, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:33:26 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:33:28 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:33:33 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6916015097fcdc1655be1fc0, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:33:33 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:35:21 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:35:26 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691601c16eeeb351999d9246, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:35:26 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:35:28 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:35:33 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691601c86eeeb351999d9247, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:35:33 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:35:35 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:35:40 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691601cf6eeeb351999d9248, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:35:40 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 21:36:54 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 21:36:59 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6916021e9d95286fd670fb78, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:36:59 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:37:01 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-13 21:37:07 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691602269d95286fd670fb79, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:37:07 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-13 21:37:09 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-13 21:37:14 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 6916022d9d95286fd670fb7a, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-13 21:37:14 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-13 22:18:24 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 22:18:29 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 22:18:29 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 22:18:30 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 22:18:30 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 22:18:30 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 22:18:31 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 22:18:31 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 22:18:31 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 22:26:31 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 22:26:32 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 69158c204e97cd3606b88fd2
+2025-11-13 22:26:32 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 69158c204e97cd3606b88fd2
+2025-11-13 22:26:54 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 22:26:55 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umar@hypeon.ai
+2025-11-13 22:26:55 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umar@hypeon.ai
+2025-11-13 22:26:55 | INFO | app.routes.auth:google_login:227 | Updating Google ID for existing user: umar@hypeon.ai
+2025-11-13 22:26:55 | INFO | app.routes.auth:google_login:230 | Google ID updated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:26:55 | INFO | app.routes.auth:google_login:234 | Existing user logged in with ID: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:26:56 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69160dd71be0b573e56dde76, User: 691574f9aaa47f83f6b05ee1, Action: login
+2025-11-13 22:26:56 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:27:06 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 22:27:06 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69160de21be0b573e56dde77, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 22:27:06 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 22:27:07 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 22:27:10 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 22:27:11 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:27:11 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:27:11 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 22:27:11 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69160de71be0b573e56dde78, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 22:27:12 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 22:27:12 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 22:28:03 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 22:28:04 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:28:04 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:58:57 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 22:58:58 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691615591be0b573e56dde79, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 22:58:58 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 22:58:58 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 22:59:09 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 22:59:10 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:59:10 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 22:59:10 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 22:59:10 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691615661be0b573e56dde7a, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 22:59:11 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 22:59:11 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:01:48 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:01:49 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:01:49 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:04:16 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:04:16 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:04:16 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:04:27 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 23:04:29 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umar@hypeon.ai
+2025-11-13 23:04:29 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umar@hypeon.ai
+2025-11-13 23:04:29 | INFO | app.routes.auth:google_login:234 | Existing user logged in with ID: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:04:29 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691616a51be0b573e56dde7b, User: 691574f9aaa47f83f6b05ee1, Action: login
+2025-11-13 23:04:29 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:04:43 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:04:43 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:04:43 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:06:33 | INFO | app.routes.products:list_products:33 | Product list request - niche: Paint, platform: None, region: US, query: None
+2025-11-13 23:06:34 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691617211be0b573e56dde7c, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:06:34 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 23:06:34 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 23:06:38 | INFO | app.routes.products:list_products:33 | Product list request - niche: Paint, platform: None, region: US, query: None
+2025-11-13 23:06:39 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691617261be0b573e56dde7d, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:06:39 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 23:06:40 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 23:06:45 | INFO | app.routes.products:list_products:33 | Product list request - niche: Paint, platform: None, region: US, query: None
+2025-11-13 23:06:45 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916172d1be0b573e56dde7e, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:06:45 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 23:06:46 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 23:06:50 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:06:50 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:06:50 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:06:56 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:06:57 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691617381be0b573e56dde7f, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:06:57 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:06:57 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:07:15 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:07:15 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:07:15 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:07:15 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:07:16 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916174b1be0b573e56dde80, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:07:16 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:07:16 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:15:16 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:15:16 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:15:16 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:15:16 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:15:16 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916192c1be0b573e56dde81, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:15:17 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:15:17 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:15:39 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:15:39 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:15:39 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:15:39 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:15:39 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691619431be0b573e56dde82, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:15:40 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:15:40 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:28:15 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:28:15 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:28:15 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:28:15 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:28:15 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161c371be0b573e56dde83, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:28:16 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:28:16 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:30:37 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:30:38 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:30:38 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:30:38 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:30:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161cc61be0b573e56dde84, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:30:38 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:30:39 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:35:42 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:35:43 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:35:43 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:35:43 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:35:43 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161df71be0b573e56dde85, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:35:44 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:35:44 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:36:54 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:36:54 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:36:54 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:37:02 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 23:37:03 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umar@hypeon.ai
+2025-11-13 23:37:03 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umar@hypeon.ai
+2025-11-13 23:37:04 | INFO | app.routes.auth:google_login:234 | Existing user logged in with ID: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:37:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161e481be0b573e56dde86, User: 691574f9aaa47f83f6b05ee1, Action: login
+2025-11-13 23:37:04 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:37:14 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:37:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161e521be0b573e56dde87, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:37:15 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:37:15 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:37:20 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:37:20 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:37:20 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:37:20 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:37:21 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161e581be0b573e56dde88, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:37:21 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:37:21 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:43:56 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:43:56 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:43:56 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:02 | INFO | app.routes.auth:google_login:182 | Google login attempt
+2025-11-13 23:44:03 | INFO | app.routes.auth:google_login:191 | Google token verified for email: umar@hypeon.ai
+2025-11-13 23:44:03 | INFO | app.routes.auth:google_login:207 | Looking up user with email: umar@hypeon.ai
+2025-11-13 23:44:03 | INFO | app.routes.auth:google_login:234 | Existing user logged in with ID: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:03 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161feb1be0b573e56dde89, User: 691574f9aaa47f83f6b05ee1, Action: login
+2025-11-13 23:44:03 | INFO | app.routes.auth:google_login:264 | Tokens generated for Google user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:13 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:44:13 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161ff51be0b573e56dde8a, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:44:14 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:44:14 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:44:17 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:44:18 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:18 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:18 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 23:44:18 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69161ffa1be0b573e56dde8b, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:44:18 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 23:44:19 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 23:44:32 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-13 23:44:41 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-13 23:44:44 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-13 23:44:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-13 23:44:45 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-13 23:44:45 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-13 23:44:46 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-13 23:44:46 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-13 23:44:46 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-13 23:44:46 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-13 23:44:51 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:44:52 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:52 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:44:54 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 23:44:54 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916201e94a00e39cf8602b9, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:44:54 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 23:44:55 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 23:47:07 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:47:07 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:47:07 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:47:07 | INFO | app.routes.products:list_products:33 | Product list request - niche: wallpaper, platform: None, region: US, query: None
+2025-11-13 23:47:07 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691620a394a00e39cf8602ba, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:47:08 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-13 23:47:08 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-13 23:51:15 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:51:15 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916219b94a00e39cf8602bb, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:51:16 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:51:16 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:51:54 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:51:54 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:51:54 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:51:57 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:51:58 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:51:58 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:52:02 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:02 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691621ca94a00e39cf8602bc, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:03 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:03 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:52:04 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691621cc94a00e39cf8602bd, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:05 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:05 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:52:05 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:06 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691621cd94a00e39cf8602be, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:06 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:06 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:52:16 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:16 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691621d894a00e39cf8602bf, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:17 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:17 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:52:17 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:18 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691621d994a00e39cf8602c0, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:18 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:18 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:52:19 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:20 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691621db94a00e39cf8602c1, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:20 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:20 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:52:58 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:52:58 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916220294a00e39cf8602c2, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:52:59 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:52:59 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:56:59 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-13 23:56:59 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:56:59 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-13 23:57:02 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:57:02 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691622f694a00e39cf8602c3, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:57:02 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:57:03 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:57:03 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:57:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691622f794a00e39cf8602c4, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:57:04 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:57:05 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-13 23:57:05 | INFO | app.routes.products:list_products:33 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-13 23:57:05 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691622f994a00e39cf8602c5, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-13 23:57:06 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-13 23:57:06 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-14 00:02:01 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-14 00:02:02 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-14 00:02:02 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-14 00:02:08 | INFO | app.routes.products:list_products:33 | Product list request - niche: Kitchen Gadgets, platform: None, region: US, query: None
+2025-11-14 00:02:08 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916242894a00e39cf8602c6, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-14 00:02:08 | INFO | app.routes.products:list_products:65 | Found 0 products matching criteria
+2025-11-14 00:02:09 | INFO | app.routes.products:list_products:77 | Retrieved 0 products (limit: 10, offset: 0)
+2025-11-14 00:02:55 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-14 00:07:39 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-14 00:07:43 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-14 00:07:43 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-14 00:07:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-14 00:07:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-14 00:07:44 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-14 00:07:45 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-14 00:07:45 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-14 00:07:45 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-14 00:07:56 | INFO | app.routes.products:list_products:33 | Product list request - niche: Carpet, platform: None, region: US, query: None
+2025-11-14 00:07:56 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691625840fec172df6657968, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-14 00:07:56 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-14 00:07:57 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-14 00:08:02 | INFO | app.routes.auth:refresh_token_endpoint:284 | Refresh token request received
+2025-11-14 00:08:02 | INFO | app.routes.auth:refresh_token_endpoint:311 | Valid refresh token for user: 691574f9aaa47f83f6b05ee1
+2025-11-14 00:08:02 | INFO | app.routes.auth:refresh_token_endpoint:328 | New tokens generated for user: 691574f9aaa47f83f6b05ee1
+2025-11-14 00:08:02 | INFO | app.routes.products:list_products:33 | Product list request - niche: Carpet, platform: None, region: US, query: None
+2025-11-14 00:08:02 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 6916258a0fec172df6657969, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-14 00:08:03 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-14 00:08:03 | INFO | app.routes.products:list_products:77 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-14 00:23:42 | INFO | app.routes.products:list_products:33 | Product list request - niche: Carpet, platform: None, region: US, query: None
+2025-11-14 00:23:43 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691629360fec172df665796a, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-14 00:23:43 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-14 00:23:43 | INFO | app.routes.products:list_products:77 | Retrieved 50 products (limit: 100, offset: 0)
+2025-11-14 00:28:21 | INFO | app.routes.products:list_products:33 | Product list request - niche: Carpet, platform: None, region: US, query: None
+2025-11-14 00:28:22 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69162a4d0fec172df665796b, User: 691574f9aaa47f83f6b05ee1, Action: search
+2025-11-14 00:28:22 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
+2025-11-14 00:28:22 | INFO | app.routes.products:list_products:77 | Retrieved 50 products (limit: 100, offset: 0)

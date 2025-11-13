@@ -5,7 +5,6 @@ from typing import Optional
 from motor.motor_asyncio import AsyncIOMotorClient
 from app.core.config import settings
 from app.utils.logger import logger
-import main
 
 # Global database client and database instances
 # These are initialized during startup and cleaned up during shutdown
@@ -29,7 +28,7 @@ async def startup():
             logger.info(f"🔗 Attempting MongoDB connection (attempt {attempt + 1}/{max_retries})...")
             
             # Initialize MongoDB client with connection pooling settings
-            main.client = AsyncIOMotorClient(
+            client = AsyncIOMotorClient(
                 settings.MONGO_URI,
                 maxPoolSize=settings.MONGO_MAX_POOL_SIZE,
                 minPoolSize=settings.MONGO_MIN_POOL_SIZE,
@@ -40,10 +39,10 @@ async def startup():
                 retryWrites=True,
                 w="majority",
             )
-            db = main.client[settings.MONGO_DB]
+            db = client[settings.MONGO_DB]
             
             # Test database connection with ping
-            await main.client.admin.command('ping')
+            await client.admin.command('ping')
             logger.info(f"✅ MongoDB connection established to {settings.MONGO_DB}")
             
             # Create indexes with error handling

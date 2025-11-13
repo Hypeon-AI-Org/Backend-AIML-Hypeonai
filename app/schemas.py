@@ -9,6 +9,11 @@ class UserCreate(BaseModel):
     email: EmailStr
     password: str
 
+class UserLogin(BaseModel):
+    """Schema for user login (email and password only)."""
+    email: EmailStr
+    password: str
+
 class UserOut(BaseModel):
     """Schema for user data returned in responses."""
     id: str

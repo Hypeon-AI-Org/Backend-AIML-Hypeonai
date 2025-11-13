@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Response, Request
+﻿from fastapi import APIRouter, Depends, HTTPException, status, Response, Request
 from datetime import timedelta, datetime
-from app.schemas import UserCreate, TokenResponse, ForgotPasswordIn, ResetPasswordIn, UserOut
+from app.schemas import UserCreate, UserLogin, TokenResponse, ForgotPasswordIn, ResetPasswordIn, UserOut
 from app.core import events
 from app.utils.security import hash_password, verify_password, create_access_token, create_refresh_token, decode_token
 from app.core.config import settings
+from app.deps import get_current_user, get_current_user_flexible
 from app.utils.logger import logger
 from app.utils.activity_tracker import log_user_activity
 from app.utils.rate_limiter import limiter, AUTH_RATE_LIMIT, PASSWORD_RESET_RATE_LIMIT
@@ -66,15 +67,25 @@ async def signup(request: Request, data: UserCreate, response: Response):
     access_token = create_access_token(user_id, expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))
     refresh_token = create_refresh_token(user_id)
     
-    # Set refresh token in httpOnly cookie
+    # Set refresh token in httpOnly cookie. Use SameSite=None for cross-site cookie
+    if settings.FRONTEND_URL.startswith("https://"):
+        samesite_val = "none"
+        secure_cookie = True
+    elif "localhost" in settings.FRONTEND_URL:
+        samesite_val = "lax"
+        secure_cookie = False
+    else:
+        samesite_val = "none"
+        secure_cookie = True
+
     response.set_cookie(
         key="refresh_token",
         value=refresh_token,
         httponly=True,
-        secure=True,  # Set to True in production with HTTPS
-        samesite="strict",
-        max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 24 * 60 * 60,  # Convert days to seconds
-        path="/api/auth"
+        max_age=60*60*24*7,
+        path="/",            # FIX: Cookie available to all paths
+        samesite=samesite_val,
+        secure=secure_cookie,
     )
     
     user_out = UserOut(id=user_id, name=data.name, email=data.email)
@@ -84,7 +95,7 @@ async def signup(request: Request, data: UserCreate, response: Response):
 # Login
 @router.post("/login", response_model=TokenResponse)
 @limiter.limit(AUTH_RATE_LIMIT)
-async def login(request: Request, data: UserCreate, response: Response):
+async def login(request: Request, data: UserLogin, response: Response):
     """
     Authenticate a user with email and password.
     
@@ -120,15 +131,25 @@ async def login(request: Request, data: UserCreate, response: Response):
     access_token = create_access_token(user_id, expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))
     refresh_token = create_refresh_token(user_id)
     
-    # Set refresh token in httpOnly cookie
+    # Set refresh token in httpOnly cookie. Use SameSite=None for cross-site cookie
+    if settings.FRONTEND_URL.startswith("https://"):
+        samesite_val = "none"
+        secure_cookie = True
+    elif "localhost" in settings.FRONTEND_URL:
+        samesite_val = "lax"
+        secure_cookie = False
+    else:
+        samesite_val = "none"
+        secure_cookie = True
+
     response.set_cookie(
         key="refresh_token",
         value=refresh_token,
         httponly=True,
-        secure=True,  # Set to True in production with HTTPS
-        samesite="strict",
-        max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 24 * 60 * 60,  # Convert days to seconds
-        path="/api/auth"
+        max_age=60*60*24*7,
+        path="/",            # FIX: Cookie available to all paths
+        samesite=samesite_val,
+        secure=secure_cookie,
     )
     
     user_out = UserOut(id=user_id, name=user.get("name"), email=user.get("email"))
@@ -219,15 +240,25 @@ async def google_login(request: Request, payload: dict, response: Response):
     access_token = create_access_token(user_id, expires_delta=timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES))
     refresh_token = create_refresh_token(user_id)
     
-    # Set refresh token in httpOnly cookie
+    # Set refresh token in httpOnly cookie. Use SameSite=None for cross-site cookie
+    if settings.FRONTEND_URL.startswith("https://"):
+        samesite_val = "none"
+        secure_cookie = True
+    elif "localhost" in settings.FRONTEND_URL:
+        samesite_val = "lax"
+        secure_cookie = False
+    else:
+        samesite_val = "none"
+        secure_cookie = True
+
     response.set_cookie(
         key="refresh_token",
         value=refresh_token,
         httponly=True,
-        secure=True,  # Set to True in production with HTTPS
-        samesite="strict",
-        max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 24 * 60 * 60,  # Convert days to seconds
-        path="/api/auth"
+        max_age=60*60*24*7,
+        path="/",            # FIX: Cookie available to all paths
+        samesite=samesite_val,
+        secure=secure_cookie,
     )
     
     logger.info(f"Tokens generated for Google user: {user_id}")
@@ -288,10 +319,9 @@ async def refresh_token_endpoint(request: Request, response: Response):
             key="refresh_token",
             value=new_refresh_token,
             httponly=True,
-            secure=True,  # Set to True in production with HTTPS
-            samesite="strict",
-            max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 24 * 60 * 60,  # Convert days to seconds
-            path="/api/auth"
+            max_age=60*60*24*7,
+            path="/",            # FIX: Cookie available to all paths
+            samesite="lax",
         )
         
         user_out = UserOut(id=user_id, name=user_doc.get("name"), email=user_doc.get("email"))
@@ -316,14 +346,24 @@ async def logout(response: Response):
     """
     logger.info("Logout request received")
     
+    if settings.FRONTEND_URL.startswith("https://"):
+        samesite_val = "none"
+        secure_cookie = True
+    elif "localhost" in settings.FRONTEND_URL:
+        samesite_val = "lax"
+        secure_cookie = False
+    else:
+        samesite_val = "none"
+        secure_cookie = True
+
     response.set_cookie(
         key="refresh_token",
         value="",
         httponly=True,
-        secure=True,
-        samesite="strict",
         max_age=0,
-        path="/api/auth"
+        path="/",            # FIX: Cookie available to all paths
+        samesite=samesite_val,
+        secure=secure_cookie,
     )
     
     logger.info("User logged out successfully")
@@ -405,3 +445,31 @@ async def reset_pass(request: Request, payload: ResetPasswordIn):
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to reset password")
     
     return {"message": "Password updated"}
+
+# Get current user
+@router.get("/me", response_model=UserOut)
+async def get_me(current_user=Depends(get_current_user_flexible)):
+    """
+    Get current authenticated user information.
+    
+    Supports authentication via:
+    1. Bearer token in Authorization header
+    2. Refresh token in HTTP-only cookie
+
+    Args:
+        current_user: The authenticated user (injected by dependency)
+
+    Returns:
+        UserOut: Current user information
+
+    Raises:
+        HTTPException: If user is not authenticated
+    """
+    logger.info(f"Get /me request for user: {current_user.id}")
+    
+    # Log user activity
+    await log_user_activity(current_user.id, "view_profile")
+    
+    user_out = UserOut(id=current_user.id, name=current_user.name, email=current_user.email)
+    return user_out
+

@@ -64,31 +64,45 @@ curl http://localhost:8000/healthz
 - Email/password signup and login
 - Google OAuth integration
 - JWT token-based authentication
-- Refresh token support
+- Refresh token with httpOnly cookies
+- Password reset via email
+- Get current user profile
 
 ✅ **Product Management**
-- Browse products with filtering
-- Search by niche, platform, region
-- Hype score and growth metrics
-- Text search capability
+- List products with flexible filtering
+- Filter by niche, platform, region
+- Sort by hype score and growth metrics
+- Full-text search capability
+- Pagination support
+- Get individual product details
 
 ✅ **Saved Searches**
-- Save product search queries
-- Manage search collections
-- User-specific searches
+- Save custom product search queries
+- Manage search collections per user
+- List all saved searches
+- Retrieve specific saved searches
+- Delete saved searches
+- User-specific isolation (security)
 
 ✅ **Security**
-- Rate limiting per endpoint
-- CORS protection
-- Security headers
-- Password hashing
-- JWT authentication
+- Rate limiting per endpoint type:
+  - Auth endpoints: 5 requests/minute
+  - Password reset: 3 requests/15 minutes
+  - General: No global limit
+- CORS protection with configurable origins
+- Comprehensive security headers
+- Password hashing with bcrypt
+- JWT authentication with HS256
+- HttpOnly cookies for refresh tokens
 
 ✅ **Developer Friendly**
-- Interactive Swagger UI
-- ReDoc documentation
+- Interactive Swagger UI at `/docs`
+- ReDoc documentation at `/redoc`
 - Postman collection included
-- Comprehensive API docs
+- Comprehensive API documentation
+- Extensive error handling
+- Structured logging with loguru
+- Activity tracking for users
 
 ---
 
@@ -96,62 +110,81 @@ curl http://localhost:8000/healthz
 
 ```
 Backend-AIML-Hypeonai/
-├── main.py                    # FastAPI application
-├── requirements.txt           # Python dependencies
+├── main.py                    # FastAPI application setup
+├── requirements.txt           # Python 3.8+ dependencies
 ├── .env                       # Configuration (create this)
-├── Postman_Collection.json   # API collection for Postman
+├── runtime.txt               # Python version
+├── Dockerfile                # Docker containerization
+├── Postman_Collection.json   # API collection
 ├── docs/                      # Documentation
-│   ├── API.md                # API reference
-│   ├── SETUP.md              # Setup guide
+│   ├── API.md                # Full API reference (v2.0)
+│   ├── SETUP.md              # Installation & setup
 │   ├── TESTING.md            # Testing guide
-│   ├── TROUBLESHOOTING.md    # Troubleshooting
-│   └── QUICK_REFERENCE.md    # Quick reference
+│   ├── INTEGRATION_GUIDE.md  # Frontend integration
+│   ├── TROUBLESHOOTING.md    # Common issues
+│   └── QUICK_REFERENCE.md    # Quick lookup
 ├── app/
+│   ├── __init__.py
+│   ├── deps.py               # Dependency injection
+│   ├── schemas.py            # Pydantic models
+│   ├── core/
+│   │   ├── config.py         # Settings & configuration
+│   │   └── events.py         # Startup/shutdown events
 │   ├── routes/               # API endpoints
-│   ├── core/                 # Core functionality
-│   ├── utils/                # Utilities
-│   └── models/               # Data models
-└── README.md                  # This file
+│   │   ├── auth.py           # Authentication (7 endpoints)
+│   │   ├── products.py       # Products (2 endpoints)
+│   │   └── saved_searches.py # Saved searches (4 endpoints)
+│   ├── models/
+│   │   └── user_model.py     # User database model
+│   ├── middleware/           # Custom middleware
+│   └── utils/
+│       ├── security.py       # Password hashing, JWT tokens
+│       ├── emailer.py        # Email sending
+│       ├── logger.py         # Logging setup
+│       ├── rate_limiter.py   # Rate limiting configuration
+│       └── activity_tracker.py # User activity logging
+└── README.md
 ```
 
 ---
 
-## 📋 API Endpoints (16 Total)
+## 📋 API Endpoints (17 Total)
 
-### Health Checks (Public)
+### Health Checks (Public - 4 endpoints)
 ```
-GET  /healthz                  Basic health check
-GET  /health                   Application health
-GET  /health/db               Database connectivity
-GET  /health/full             Full health status
-```
-
-### Authentication
-```
-POST /api/auth/signup         Create account
-POST /api/auth/login          User login
-POST /api/auth/google         Google OAuth
-POST /api/auth/refresh        Refresh access token
-POST /api/auth/logout         Logout user
-POST /api/auth/forgot         Request password reset
-POST /api/auth/reset          Reset password
+GET  /healthz                Basic health check
+GET  /health                 Application health
+GET  /health/db             Database health
+GET  /health/full           Full system health
 ```
 
-### Products (Requires Authentication)
+### Authentication (7 endpoints)
 ```
-GET  /api/products/           List products
-GET  /api/products/{id}       Get product details
+POST /api/auth/signup        Create account
+POST /api/auth/login         User login
+POST /api/auth/google        Google OAuth login
+GET  /api/auth/me            Get current user
+POST /api/auth/refresh       Refresh access token
+POST /api/auth/logout        Logout user
+POST /api/auth/forgot        Request password reset email
+POST /api/auth/reset         Reset password with token
 ```
 
-### Saved Searches (Requires Authentication)
+### Products - Auth Required (2 endpoints)
 ```
-GET  /api/saved-searches/           List saved searches
+GET  /api/products/          List products (with filters)
+GET  /api/products/{id}      Get product details
+```
+
+### Saved Searches - Auth Required (4 endpoints)
+```
+GET  /api/saved-searches/           List user's saved searches
 POST /api/saved-searches/           Create saved search
 GET  /api/saved-searches/{id}       Get specific search
 DELETE /api/saved-searches/{id}     Delete search
 ```
 
-See [API.md](docs/API.md) for detailed endpoint documentation.
+See [API.md](docs/API.md) for detailed endpoint documentation with examples.
 
 ---
 
@@ -162,30 +195,35 @@ See [API.md](docs/API.md) for detailed endpoint documentation.
 Create `.env` file in project root:
 
 ```env
-# Database
+# ===== Database =====
 MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/
 MONGO_DB=hypeon_mvp_db
+MONGO_MAX_POOL_SIZE=100
+MONGO_MIN_POOL_SIZE=10
+MONGO_MAX_IDLE_TIME_MS=30000
 
-# JWT
-JWT_SECRET=your-secret-key-minimum-32-characters
+# ===== JWT Authentication =====
+JWT_SECRET=your-very-secure-secret-key-minimum-32-characters-long
+JWT_ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=120
 REFRESH_TOKEN_EXPIRE_DAYS=7
 
-# Frontend
+# ===== Frontend =====
 FRONTEND_URL=http://localhost:3000
 
-# Email
+# ===== Email (Password Reset) =====
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASS=your-app-password
 EMAIL_FROM=noreply@hypeon.ai
 
-# Google OAuth
+# ===== Google OAuth =====
 GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
 
-# Environment
+# ===== Environment =====
 ENVIRONMENT=development
+DEBUG=true
 ```
 
 See [SETUP.md](docs/SETUP.md) for detailed configuration instructions.
@@ -194,7 +232,7 @@ See [SETUP.md](docs/SETUP.md) for detailed configuration instructions.
 
 ## 🧪 Testing
 
-### Option 1: Swagger UI (Recommended for beginners)
+### Option 1: Swagger UI (Best for beginners)
 1. Start backend: `uvicorn main:app --reload`
 2. Open: http://localhost:8000/docs
 3. Click endpoint → "Try it out" → "Execute"

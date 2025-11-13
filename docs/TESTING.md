@@ -101,54 +101,85 @@ password: TestPassword123!
 ### Scenario 1: Complete User Journey
 ```
 1. POST /api/auth/signup
-   ↓ Get tokens
-2. GET /api/products/
+   ↓ Get access_token and refresh_token
+2. GET /api/auth/me
+   ↓ Verify user info
+3. GET /api/products/
    ↓ Browse products
-3. POST /api/saved-searches/
+4. POST /api/saved-searches/
    ↓ Save a search
-4. GET /api/saved-searches/{id}
-   ↓ View saved search
-5. DELETE /api/saved-searches/{id}
+5. GET /api/saved-searches/
+   ↓ List saved searches
+6. GET /api/saved-searches/{id}
+   ↓ View specific saved search
+7. DELETE /api/saved-searches/{id}
    ↓ Delete search
-6. POST /api/auth/logout
+8. POST /api/auth/logout
    ↓ Logout
 ```
 
 ### Scenario 2: Error Handling
-Test these should fail:
+Test these error scenarios:
 ```
 - POST /api/auth/signup (duplicate email) → 409 Conflict
 - POST /api/auth/login (wrong password) → 401 Unauthorized
+- POST /api/auth/login (non-existent user) → 401 Unauthorized
 - GET /api/products/ (no token) → 401 Unauthorized
-- POST /api/saved-searches (invalid data) → 422 Unprocessable Entity
+- GET /api/saved-searches/{invalid-id} → 404 Not Found
+- DELETE /api/saved-searches/{other-user-id} → 403 Forbidden
 ```
 
 ### Scenario 3: Authentication Flow
 ```
-1. Login → Get tokens
+1. POST /api/auth/login → Get tokens
 2. Use access_token in Authorization header
-3. When expired: POST /api/auth/refresh
-4. Get new access_token
-5. Continue using API
+3. Make API call with access_token
+4. When expired: POST /api/auth/refresh
+5. Get new access_token
+6. Continue using API with new token
 ```
 
-### Scenario 4: Product Search
+### Scenario 4: Product Search and Filtering
 ```
-1. GET /api/products/ (no filters)
-2. GET /api/products/?niche=electronics
-3. GET /api/products/?niche=electronics&limit=10&sort=hypeScore:desc
-4. GET /api/products/?q=laptop (text search)
-5. Verify correct results
+1. GET /api/products/ (no filters) → List all products
+2. GET /api/products/?niche=electronics → Filter by niche
+3. GET /api/products/?platform=amazon&region=US → Filter by platform and region
+4. GET /api/products/?limit=10&sort=hypeScore:desc → Limit and sort
+5. GET /api/products/?q=laptop → Full-text search
+6. GET /api/products/{product_id} → Get specific product
 ```
 
-### Scenario 5: Saved Searches
+### Scenario 5: Saved Searches Management
 ```
-1. Create saved search
-2. List saved searches
-3. Get specific search
-4. Verify ownership (only own searches visible)
-5. Delete search
-6. Verify deleted (404 on GET)
+1. POST /api/saved-searches/ → Create search
+2. GET /api/saved-searches/ → List all searches
+3. GET /api/saved-searches/{id} → Get specific search
+4. Verify user can only see own searches
+5. DELETE /api/saved-searches/{id} → Delete search
+```
+
+### Scenario 6: Password Reset Flow
+```
+1. POST /api/auth/forgot → Request password reset
+2. Extract reset token from email (simulated or check logs)
+3. POST /api/auth/reset → Reset password with token
+4. POST /api/auth/login → Login with new password
+```
+
+### Scenario 7: Google OAuth
+```
+1. Get Google ID token from frontend
+2. POST /api/auth/google → Login/register with Google token
+3. Verify user created if new
+4. Verify existing user logs in
+```
+
+### Scenario 8: Rate Limiting
+```
+1. POST /api/auth/signup → First request (success)
+2. POST /api/auth/signup → Rapid repeat requests
+3. Verify 429 Too Many Requests after 5 requests/min
+4. Wait 1 minute and verify access restored
 ```
 
 ---

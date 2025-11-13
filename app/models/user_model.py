@@ -1,15 +1,17 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from typing import Optional
 from datetime import datetime
 
 class UserInDB(BaseModel):
     """Schema for user data stored in the database."""
-    id: Optional[str]
-    name: Optional[str]
-    email: EmailStr
-    passwordHash: Optional[str]
-    googleId: Optional[str]
+    model_config = ConfigDict(extra='ignore')  # Ignore extra fields not in model
+    
+    id: Optional[str] = None
+    name: Optional[str] = None
+    email: Optional[EmailStr] = None
+    passwordHash: Optional[str] = None
+    googleId: Optional[str] = None
     role: Optional[str] = "user"
-    resetPasswordToken: Optional[str]
-    resetPasswordExpires: Optional[datetime]
-    createdAt: Optional[datetime]
+    resetPasswordToken: Optional[str] = None
+    resetPasswordExpires: Optional[datetime] = None
+    createdAt: Optional[datetime] = None

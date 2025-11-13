@@ -31,6 +31,16 @@ async def add_security_headers(request: Request, call_next):
         response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
         response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
         response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' data: https:;"
+        
+        # Add CORS headers explicitly to ensure they're always present
+        origin = request.headers.get("origin")
+        if origin == "http://localhost:3000":
+            response.headers["Access-Control-Allow-Origin"] = origin
+            response.headers["Access-Control-Allow-Credentials"] = "true"
+            response.headers["Access-Control-Allow-Methods"] = "DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT"
+            response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
+            response.headers["Access-Control-Max-Age"] = "600"
+        
         return response
     except Exception as e:
         logger.error(f"Security headers middleware error: {str(e)}")
@@ -43,26 +53,14 @@ app = FastAPI(title="Hypeon Backend (FastAPI)")
 # Add security headers middleware
 app.middleware("http")(add_security_headers)
 
-# Configure CORS origins based on environment
-cors_origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-
-# Add production frontend URL if available
-frontend_url = os.getenv("FRONTEND_URL")
-if frontend_url:
-    cors_origins.append(frontend_url)
-
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=cors_origins,
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"],
-    expose_headers=["Access-Control-Allow-Origin"],
-    max_age=3600
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"],  # needed to expose set-cookie and authorization headers
 )
 
 # Add rate limiter to the app
