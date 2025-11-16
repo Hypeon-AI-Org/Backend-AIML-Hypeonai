@@ -43,6 +43,14 @@ class Settings:
     
     # Google OAuth settings
     GOOGLE_CLIENT_ID: Optional[str] = os.getenv("GOOGLE_CLIENT_ID")
+    
+    # Email Whitelist settings
+    ENABLE_EMAIL_WHITELIST: bool = os.getenv("ENABLE_EMAIL_WHITELIST", "false").lower() == "true"
+    WHITELISTED_EMAILS: list = [
+        email.strip().lower() 
+        for email in os.getenv("WHITELISTED_EMAILS", "").split(",") 
+        if email.strip()
+    ]
 
 # Global settings instance
 settings = Settings()

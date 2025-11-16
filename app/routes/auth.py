@@ -19,6 +19,22 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
+def is_email_whitelisted(email: str) -> bool:
+    """
+    Check if an email is whitelisted for login access.
+    
+    Args:
+        email (str): Email address to check
+        
+    Returns:
+        bool: True if whitelist is disabled or email is whitelisted, False otherwise
+    """
+    if not settings.ENABLE_EMAIL_WHITELIST:
+        return True
+    
+    email_lower = email.lower().strip()
+    return email_lower in settings.WHITELISTED_EMAILS
+
 # Signup
 @router.post("/signup", response_model=TokenResponse)
 @limiter.limit(AUTH_RATE_LIMIT)
@@ -34,9 +50,14 @@ async def signup(request: Request, data: UserCreate, response: Response):
         TokenResponse: JWT access token, refresh token, and user information
         
     Raises:
-        HTTPException: If email is already in use
+        HTTPException: If email is already in use or not whitelisted
     """
     logger.info(f"Signup attempt for email: {data.email}")
+    
+    # Check email whitelist
+    if not is_email_whitelisted(data.email):
+        logger.warning(f"Signup failed - email not whitelisted: {data.email}")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Email not authorized for access")
     
     db = events.db
     existing = await db.users.find_one({"email": data.email})
@@ -107,9 +128,14 @@ async def login(request: Request, data: UserLogin, response: Response):
         TokenResponse: JWT access token, refresh token, and user information
         
     Raises:
-        HTTPException: If credentials are invalid
+        HTTPException: If credentials are invalid or email is not whitelisted
     """
     logger.info(f"Login attempt for email: {data.email}")
+    
+    # Check email whitelist
+    if not is_email_whitelisted(data.email):
+        logger.warning(f"Login failed - email not whitelisted: {data.email}")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Email not authorized for access")
     
     db = events.db
     user = await db.users.find_one({"email": data.email})
@@ -203,6 +229,11 @@ async def google_login(request: Request, payload: dict, response: Response):
     name = idinfo.get("name")
     sub = idinfo.get("sub")
     db = events.db
+    
+    # Check email whitelist
+    if not is_email_whitelisted(email):
+        logger.warning(f"Google login failed - email not whitelisted: {email}")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Email not authorized for access")
     
     logger.info(f"Looking up user with email: {email}")
     user = await db.users.find_one({"email": email})
