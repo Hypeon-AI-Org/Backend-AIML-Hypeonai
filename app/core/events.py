@@ -23,21 +23,31 @@ async def startup():
     max_retries = 3
     retry_delay = 2
     
+    # Validate MONGO_URI is set
+    if not settings.MONGO_URI:
+        logger.error("❌ MONGO_URI is not set in environment variables")
+        raise ValueError("MONGO_URI environment variable is required")
+    
     for attempt in range(max_retries):
         try:
             logger.info(f"🔗 Attempting MongoDB connection (attempt {attempt + 1}/{max_retries})...")
+            logger.debug(f"Connecting to: {settings.MONGO_URI.split('@')[1] if '@' in settings.MONGO_URI else 'MongoDB'}")
             
             # Initialize MongoDB client with connection pooling settings
+            # Increased timeouts for Atlas connections which may take longer
+            # Note: mongodb+srv:// automatically enables TLS, so we don't set it explicitly
             client = AsyncIOMotorClient(
                 settings.MONGO_URI,
                 maxPoolSize=settings.MONGO_MAX_POOL_SIZE,
                 minPoolSize=settings.MONGO_MIN_POOL_SIZE,
                 maxIdleTimeMS=settings.MONGO_MAX_IDLE_TIME_MS,
-                serverSelectionTimeoutMS=5000,  # Timeout for server selection (5 seconds)
-                connectTimeoutMS=5000,  # Timeout for initial connection (5 seconds)
-                socketTimeoutMS=5000,   # Timeout for socket operations (5 seconds)
+                serverSelectionTimeoutMS=30000,  # Increased to 30 seconds for Atlas
+                connectTimeoutMS=30000,  # Increased to 30 seconds for initial connection
+                socketTimeoutMS=30000,   # Increased to 30 seconds for socket operations
                 retryWrites=True,
                 w="majority",
+                # Additional options for better Atlas compatibility
+                heartbeatFrequencyMS=10000,  # Check server status every 10 seconds
             )
             db = client[settings.MONGO_DB]
             
@@ -51,12 +61,28 @@ async def startup():
             return
             
         except Exception as e:
-            logger.warning(f"⚠️ MongoDB connection attempt {attempt + 1} failed: {str(e)}")
+            error_msg = str(e)
+            logger.warning(f"⚠️ MongoDB connection attempt {attempt + 1} failed: {error_msg}")
+            
+            # Provide helpful error messages
+            if "authentication failed" in error_msg.lower():
+                logger.error("💡 Tip: Check your MongoDB username and password in MONGO_URI")
+            elif "timeout" in error_msg.lower() or "no replica set members" in error_msg.lower():
+                logger.error("💡 Tip: Check your network connection and MongoDB Atlas IP whitelist")
+                logger.error("💡 Tip: Ensure your IP address is whitelisted in MongoDB Atlas Network Access")
+            elif "tls" in error_msg.lower() or "ssl" in error_msg.lower():
+                logger.error("💡 Tip: Check TLS/SSL configuration in your connection string")
+            
             if attempt < max_retries - 1:
                 logger.info(f"⏳ Retrying in {retry_delay} seconds...")
                 await asyncio.sleep(retry_delay)
             else:
                 logger.error(f"❌ MongoDB initialization failed after {max_retries} attempts")
+                logger.error("💡 Common solutions:")
+                logger.error("   1. Verify MONGO_URI in .env file is correct")
+                logger.error("   2. Check MongoDB Atlas IP whitelist includes your IP")
+                logger.error("   3. Verify database user credentials are correct")
+                logger.error("   4. Ensure connection string includes ?retryWrites=true&w=majority")
                 raise
 
 
@@ -68,7 +94,18 @@ async def _create_indexes(database):
     indexes = [
         ("users", [("email", 1)], {"unique": True}, "email unique index"),
         ("products", [("title", "text")], {}, "products full-text index"),
-        ("products", [("niche", 1), ("platform", 1), ("region", 1), ("hypeScore", -1)], {}, "products compound index"),
+        # Updated to use actual database field names
+        ("products", [("niche", 1), ("Product Type", 1), ("region", 1), ("Hype Score", -1)], {}, "products compound index"),
+        # Add indexes for commonly filtered fields
+        ("products", [("Category", 1)], {}, "products category index"),
+        ("products", [("color", 1)], {}, "products color index"),
+        ("products", [("Sales", 1)], {}, "products sales index"),
+        # Performance: Add indexes for sorting (most common sort field)
+        ("products", [("Hype Score", -1)], {}, "products hype score sort index"),
+        # Performance: Compound indexes for common filter + sort combinations
+        ("products", [("niche", 1), ("Hype Score", -1)], {}, "products niche + score index"),
+        ("products", [("region", 1), ("Hype Score", -1)], {}, "products region + score index"),
+        ("products", [("Category", 1), ("Hype Score", -1)], {}, "products category + score index"),
         ("saved_searches", [("userId", 1), ("createdAt", -1)], {}, "saved_searches compound index"),
         ("user_activity", [("userId", 1), ("timestamp", -1)], {}, "user_activity compound index"),
         ("user_activity", [("action", 1)], {}, "user_activity action index"),

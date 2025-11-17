@@ -52,5 +52,36 @@ class Settings:
         if email.strip()
     ]
 
+
+def _validate_production_settings(settings: Settings):
+    """
+    Validate critical settings for production deployment.
+    Raises ValueError if required settings are missing or insecure.
+    """
+    if settings.ENVIRONMENT == "production":
+        # Validate JWT_SECRET
+        if settings.JWT_SECRET == "replace_me" or len(settings.JWT_SECRET) < 32:
+            raise ValueError(
+                "JWT_SECRET must be set and at least 32 characters long in production. "
+                "Current value is insecure or too short."
+            )
+        
+        # Validate MONGO_URI
+        if not settings.MONGO_URI:
+            raise ValueError(
+                "MONGO_URI must be set in production environment. "
+                "Database connection string is required."
+            )
+        
+        # Validate MONGO_URI format (basic check)
+        if not (settings.MONGO_URI.startswith("mongodb://") or settings.MONGO_URI.startswith("mongodb+srv://")):
+            raise ValueError(
+                "MONGO_URI must be a valid MongoDB connection string. "
+                "Expected format: mongodb://... or mongodb+srv://..."
+            )
+
+
 # Global settings instance
 settings = Settings()
+# Validate settings after instantiation
+_validate_production_settings(settings)

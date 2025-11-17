@@ -1481,3 +1481,775 @@ resetPasswordExpires
 2025-11-14 00:28:22 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 69162a4d0fec172df665796b, User: 691574f9aaa47f83f6b05ee1, Action: search
 2025-11-14 00:28:22 | INFO | app.routes.products:list_products:65 | Found 50 products matching criteria
 2025-11-14 00:28:22 | INFO | app.routes.products:list_products:77 | Retrieved 50 products (limit: 100, offset: 0)
+2025-11-16 19:45:12 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-16 19:45:17 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-16 19:45:17 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created email unique index
+2025-11-16 19:45:18 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products full-text index
+2025-11-16 19:45:18 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created products compound index
+2025-11-16 19:45:19 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created saved_searches compound index
+2025-11-16 19:45:19 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity compound index
+2025-11-16 19:45:19 | DEBUG | app.core.events:_create_indexes:81 | ✓ Created user_activity action index
+2025-11-16 19:45:19 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-16 20:05:11 | INFO | app.core.events:shutdown:97 | ✅ MongoDB connection closed gracefully
+2025-11-17 22:42:25 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 22:42:29 | INFO | app.core.events:startup:46 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-17 22:42:29 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created email unique index
+2025-11-17 22:42:29 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products full-text index
+2025-11-17 22:42:30 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created products compound index
+2025-11-17 22:42:30 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created saved_searches compound index
+2025-11-17 22:42:31 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity compound index
+2025-11-17 22:42:31 | DEBUG | app.core.events:_create_indexes:82 | ✓ Created user_activity action index
+2025-11-17 22:42:31 | INFO | app.core.events:startup:50 | ✅ Database indexes created successfully
+2025-11-17 22:51:09 | INFO | app.core.events:shutdown:98 | ✅ MongoDB connection closed gracefully
+2025-11-17 22:51:15 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 22:51:21 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members match selector "Primary()", Timeout: 5.0s, Topology Description: <TopologyDescription id: 691b598bd8b5e784f0ba369b, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.32800000003771856>]>
+2025-11-17 22:51:21 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-17 22:51:23 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-17 22:51:28 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691b5993d8b5e784f0ba369c, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-17 22:51:28 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-17 22:51:30 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-17 22:51:35 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691b599ad8b5e784f0ba369d, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-17 22:51:35 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-17 22:53:28 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 22:53:34 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 1 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691b5a11617146df6387a0e1, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-17 22:53:34 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-17 22:53:36 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 2/3)...
+2025-11-17 22:53:41 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 2 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691b5a18617146df6387a0e2, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-17 22:53:41 | INFO | app.core.events:startup:56 | ⏳ Retrying in 2 seconds...
+2025-11-17 22:53:43 | INFO | app.core.events:startup:28 | 🔗 Attempting MongoDB connection (attempt 3/3)...
+2025-11-17 22:53:48 | WARNING | app.core.events:startup:54 | ⚠️ MongoDB connection attempt 3 failed: No replica set members found yet, Timeout: 5.0s, Topology Description: <TopologyDescription id: 691b5a1f617146df6387a0e3, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-t2aox6m-shard-00-00.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-01.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-t2aox6m-shard-00-02.dtq0ocn.mongodb.net', 27017) server_type: Unknown, rtt: None>]>
+2025-11-17 22:53:48 | ERROR | app.core.events:startup:59 | ❌ MongoDB initialization failed after 3 attempts
+2025-11-17 22:55:00 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 22:55:00 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-17 22:55:46 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-17 22:55:46 | DEBUG | app.core.events:_create_indexes:108 | ✓ Created email unique index
+2025-11-17 22:55:46 | DEBUG | app.core.events:_create_indexes:108 | ✓ Created products full-text index
+2025-11-17 22:55:47 | DEBUG | app.core.events:_create_indexes:108 | ✓ Created products compound index
+2025-11-17 22:55:47 | DEBUG | app.core.events:_create_indexes:108 | ✓ Created saved_searches compound index
+2025-11-17 22:55:47 | DEBUG | app.core.events:_create_indexes:108 | ✓ Created user_activity compound index
+2025-11-17 22:55:48 | DEBUG | app.core.events:_create_indexes:108 | ✓ Created user_activity action index
+2025-11-17 22:55:48 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-17 22:57:12 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 22:57:12 | WARNING | app.routes.auth:refresh_token_endpoint:320 | Refresh token not found in cookies
+2025-11-17 22:57:12 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-17 22:57:12 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 22:57:12 | WARNING | app.routes.auth:refresh_token_endpoint:320 | Refresh token not found in cookies
+2025-11-17 22:57:12 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-17 22:57:13 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 22:57:13 | WARNING | app.routes.auth:refresh_token_endpoint:320 | Refresh token not found in cookies
+2025-11-17 22:57:13 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-17 22:57:13 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 22:57:13 | WARNING | app.routes.auth:refresh_token_endpoint:320 | Refresh token not found in cookies
+2025-11-17 22:57:13 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-17 22:57:13 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 22:57:13 | WARNING | app.routes.auth:refresh_token_endpoint:320 | Refresh token not found in cookies
+2025-11-17 22:57:13 | WARNING | main:http_exception_handler:163 | HTTP Exception - Status: 401, Detail: Refresh token not found
+2025-11-17 22:57:13 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-17 22:57:14 | WARNING | app.utils.rate_limiter:rate_limit_exceeded_handler:33 | Rate limit exceeded for IP: 127.0.0.1
+2025-11-17 22:57:31 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-17 22:57:49 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-17 22:57:55 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-17 22:57:55 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5b1b8d1ef01fa91045fd, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-17 22:57:55 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:57:55 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:11 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-17 22:58:12 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-17 22:58:12 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-17 22:58:12 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5b2c8d1ef01fa91045fe, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-17 22:58:13 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:13 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:13 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5b2c8d1ef01fa91045ff, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-17 22:58:13 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:13 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:20 | INFO | app.routes.products:list_products:47 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-17 22:58:20 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5b348d1ef01fa9104600, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 22:58:21 | INFO | app.routes.products:list_products:87 | Found 21734 products matching criteria
+2025-11-17 22:58:21 | INFO | app.routes.products:list_products:101 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 22:58:31 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 22:58:31 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:31 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 22:58:31 | INFO | app.routes.products:list_products:47 | Product list request - niche: Wallpaper, platform: None, region: US, query: None
+2025-11-17 22:58:31 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5b3f8d1ef01fa9104601, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 22:58:32 | INFO | app.routes.products:list_products:87 | Found 21734 products matching criteria
+2025-11-17 22:58:33 | INFO | app.routes.products:list_products:101 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:08:07 | INFO | app.core.events:shutdown:124 | ✅ MongoDB connection closed gracefully
+2025-11-17 23:09:56 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 23:09:56 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-17 23:10:42 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-17 23:10:43 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-17 23:10:43 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-17 23:10:43 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-17 23:10:44 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-17 23:10:44 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-17 23:10:45 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-17 23:10:47 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-17 23:10:48 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-17 23:10:49 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-17 23:10:49 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-17 23:10:49 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-17 23:10:52 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 23:10:52 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-17 23:11:38 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-17 23:11:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-17 23:11:39 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-17 23:11:39 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-17 23:11:39 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-17 23:11:40 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-17 23:11:40 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-17 23:11:40 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-17 23:11:41 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-17 23:11:41 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-17 23:11:41 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-17 23:11:41 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-17 23:11:51 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 23:11:51 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-17 23:12:36 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-17 23:12:36 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-17 23:12:37 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-17 23:12:37 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-17 23:12:37 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-17 23:12:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-17 23:12:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-17 23:12:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-17 23:12:39 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-17 23:12:39 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-17 23:12:39 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-17 23:12:51 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-17 23:12:51 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-17 23:12:52 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5e9bbef52e02b3ed84a8, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-17 23:12:52 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:12:52 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:12:57 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:12:57 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5ea1bef52e02b3ed84a9, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:12:58 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:12:58 | INFO | app.routes.products:list_products:130 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:13:03 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:13:03 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:13:03 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:13:26 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:13:27 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5ebebef52e02b3ed84aa, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:13:27 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:13:28 | INFO | app.routes.products:list_products:130 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:13:51 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:13:52 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:13:52 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:13:52 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:13:52 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b5ed8bef52e02b3ed84ab, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:13:52 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:13:53 | INFO | app.routes.products:list_products:130 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:17:12 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-17 23:17:17 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 23:17:17 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-17 23:18:32 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-17 23:18:32 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-17 23:19:17 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-17 23:19:18 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-17 23:19:18 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-17 23:19:18 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-17 23:19:19 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-17 23:19:19 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-17 23:19:19 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-17 23:19:20 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-17 23:19:20 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-17 23:19:20 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-17 23:19:20 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-17 23:21:34 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:21:34 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b60a644b048095d06e271, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:21:35 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:21:36 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:21:36 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:00 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:23:01 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b60fc44b048095d06e272, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:01 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:23:01 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:23:01 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:15 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:23:16 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b610b44b048095d06e273, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:16 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:23:16 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:23:16 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:23 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:23:23 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:23:23 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:23:23 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:23:23 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:23:23 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b611344b048095d06e274, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:23 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b611344b048095d06e275, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:24 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:23:24 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:23:24 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:23:24 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:25 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:23:25 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:42 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: Multi, sales: None, query: None
+2025-11-17 23:23:42 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b612644b048095d06e276, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:43 | INFO | app.routes.products:list_products:116 | Found 876 products matching criteria
+2025-11-17 23:23:44 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:23:44 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:49 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: Romantic, color: Multi, sales: None, query: None
+2025-11-17 23:23:50 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b612d44b048095d06e277, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:50 | INFO | app.routes.products:list_products:116 | Found 103 products matching criteria
+2025-11-17 23:23:51 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:23:51 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:23:55 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: Multi, sales: None, query: None
+2025-11-17 23:23:55 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b613344b048095d06e278, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:23:56 | INFO | app.routes.products:list_products:116 | Found 876 products matching criteria
+2025-11-17 23:23:57 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:23:57 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:24:31 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:24:31 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b615744b048095d06e279, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:24:32 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:24:33 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:24:33 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:24:41 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:24:42 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b616144b048095d06e27a, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:24:42 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:24:43 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:24:43 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:24:48 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:24:48 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b616844b048095d06e27b, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:24:49 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:24:50 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:24:50 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:25:40 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:25:40 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b619c44b048095d06e27c, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:25:40 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:25:41 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:25:41 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:25:47 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:25:48 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:25:48 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:26:11 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:26:11 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b61bb44b048095d06e27d, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:26:11 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:26:12 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:26:12 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:26:40 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:26:40 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:26:40 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:26:40 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:26:41 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b61d844b048095d06e27e, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:26:41 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:26:42 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:26:42 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:27:10 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:27:10 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b61f644b048095d06e27f, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:27:10 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:27:11 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:27:11 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:27:13 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:27:14 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:27:14 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:27:14 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:27:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b61fa44b048095d06e280, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:27:14 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:27:15 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:27:15 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:27:31 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:27:32 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b620b44b048095d06e281, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:27:32 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:27:32 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:27:32 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:27:37 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:27:38 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:27:38 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:27:38 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:27:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b621244b048095d06e282, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:27:38 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:27:39 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:27:39 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:31:20 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:31:20 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b62f044b048095d06e283, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:31:21 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:31:22 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:31:22 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:37:16 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:37:17 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b645444b048095d06e284, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:37:17 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:37:18 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:37:18 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:37:23 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:37:23 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b645b44b048095d06e285, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:37:24 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:37:24 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-17 23:37:24 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-17 23:37:28 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-17 23:37:28 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:37:28 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-17 23:37:28 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-17 23:37:29 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b646044b048095d06e286, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-17 23:37:29 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-17 23:37:30 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-17 23:37:30 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:25:14 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 00:25:38 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:25:38 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:25:38 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:25:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b6faa44b048095d06e287, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:25:39 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:25:40 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:25:40 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:25:53 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-18 00:25:54 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-18 00:25:54 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b6fba44b048095d06e288, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-18 00:25:54 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:25:54 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:26:01 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:26:01 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b6fc144b048095d06e289, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:26:02 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:26:02 | INFO | app.routes.products:list_products:137 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 00:26:02 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:30:09 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 00:30:09 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:30:09 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:30:09 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:30:10 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b70b944b048095d06e28a, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:30:10 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:30:11 | INFO | app.routes.products:list_products:137 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:30:11 | DEBUG | app.routes.products:list_products:140 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:32:40 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-18 00:32:46 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-18 00:32:46 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-18 00:33:36 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-18 00:33:36 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-18 00:33:36 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-18 00:33:37 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-18 00:33:37 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-18 00:33:37 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-18 00:33:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-18 00:33:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-18 00:33:38 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-18 00:33:39 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-18 00:33:39 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-18 00:33:39 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-18 00:33:42 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-18 00:33:42 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-18 00:34:16 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-18 00:34:16 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-18 00:35:02 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-18 00:35:03 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-18 00:35:03 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-18 00:35:04 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-18 00:35:04 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-18 00:35:04 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-18 00:35:05 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-18 00:35:05 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-18 00:35:06 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-18 00:35:06 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-18 00:35:06 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-18 00:35:23 | INFO | app.routes.auth:logout:378 | Logout request received
+2025-11-18 00:35:23 | INFO | app.routes.auth:logout:400 | User logged out successfully
+2025-11-18 00:35:38 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-18 00:35:39 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-18 00:35:39 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7203adafeda3970bc2d6, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-18 00:35:40 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:35:40 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:35:45 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:35:46 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7209adafeda3970bc2d7, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:35:46 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:35:47 | INFO | app.routes.products:list_products:146 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 00:35:47 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:35:52 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 00:35:52 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:35:52 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:36:05 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 00:36:06 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:36:06 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:36:15 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:36:16 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7227adafeda3970bc2d8, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:36:16 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:36:18 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:36:18 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:36:19 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 00:36:20 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:36:20 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 00:36:20 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:36:20 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b722cadafeda3970bc2d9, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:36:21 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:36:22 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:36:22 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:36:29 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:36:30 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7235adafeda3970bc2da, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:36:31 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:36:33 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:36:33 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:38:52 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:38:52 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b72c4adafeda3970bc2db, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:38:53 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:38:54 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:38:54 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:39:11 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: Green, sales: None, query: None
+2025-11-18 00:39:11 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b72d7adafeda3970bc2dc, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:39:12 | INFO | app.routes.products:list_products:116 | Found 1881 products matching criteria
+2025-11-18 00:39:13 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:39:13 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:39:19 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: Old-fashioned, color: Green, sales: None, query: None
+2025-11-18 00:39:19 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b72dfadafeda3970bc2dd, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:39:19 | INFO | app.routes.products:list_products:116 | Found 79 products matching criteria
+2025-11-18 00:39:21 | INFO | app.routes.products:list_products:146 | Retrieved 79 products (limit: 100, offset: 0)
+2025-11-18 00:39:21 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:39:51 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:39:51 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b72ffadafeda3970bc2de, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:39:52 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:39:53 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:39:53 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:44:08 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:44:08 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7400adafeda3970bc2df, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:44:08 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:44:09 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:44:09 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:44:13 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:44:13 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7405adafeda3970bc2e0, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:44:13 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:44:14 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:44:14 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:44:20 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:44:21 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b740cadafeda3970bc2e1, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:44:21 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:44:22 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:44:22 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:44:26 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:44:27 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7412adafeda3970bc2e2, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:44:27 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:44:28 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:44:28 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:44:32 | INFO | app.routes.products:list_products:64 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 00:44:33 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7418adafeda3970bc2e3, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 00:44:33 | INFO | app.routes.products:list_products:116 | Found 21734 products matching criteria
+2025-11-18 00:44:34 | INFO | app.routes.products:list_products:146 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 00:44:34 | DEBUG | app.routes.products:list_products:149 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 00:54:14 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-18 01:09:01 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-18 01:09:01 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-18 01:09:47 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-18 01:09:47 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created email unique index
+2025-11-18 01:09:47 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products full-text index
+2025-11-18 01:09:48 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products compound index
+2025-11-18 01:09:48 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products category index
+2025-11-18 01:09:48 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products color index
+2025-11-18 01:09:49 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created products sales index
+2025-11-18 01:09:49 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created saved_searches compound index
+2025-11-18 01:09:49 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity compound index
+2025-11-18 01:09:50 | DEBUG | app.core.events:_create_indexes:112 | ✓ Created user_activity action index
+2025-11-18 01:09:50 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-18 01:10:12 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:10:12 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:10:12 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:10:24 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-18 01:10:25 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-18 01:10:25 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a294d814506d4d30c53, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-18 01:10:25 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:10:25 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:10:38 | INFO | app.routes.products:list_products:65 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:10:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a364d814506d4d30c54, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:10:38 | INFO | app.routes.products:list_products:134 | Found 892 products matching criteria
+2025-11-18 01:10:39 | INFO | app.routes.products:list_products:164 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 01:10:39 | DEBUG | app.routes.products:list_products:167 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 01:10:43 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:10:43 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:10:43 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:10:45 | INFO | app.routes.products:list_products:65 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:10:45 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a3d4d814506d4d30c55, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:10:46 | INFO | app.routes.products:list_products:134 | Found 892 products matching criteria
+2025-11-18 01:10:47 | INFO | app.routes.products:list_products:164 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 01:10:47 | DEBUG | app.routes.products:list_products:167 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 01:11:39 | INFO | app.routes.products:list_products:65 | Product list request - niche: Paint, platform: None, region: US, category: English wallpapers, color: None, sales: None, query: None
+2025-11-18 01:11:39 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a734d814506d4d30c56, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:11:39 | INFO | app.routes.products:list_products:134 | Found 0 products matching criteria
+2025-11-18 01:11:40 | INFO | app.routes.products:list_products:164 | Retrieved 0 products (limit: 100, offset: 0)
+2025-11-18 01:11:51 | INFO | app.routes.products:list_products:65 | Product list request - niche: Paint, platform: None, region: US, category: Romantic, color: None, sales: None, query: None
+2025-11-18 01:11:51 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a7f4d814506d4d30c57, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:11:51 | INFO | app.routes.products:list_products:134 | Found 0 products matching criteria
+2025-11-18 01:11:52 | INFO | app.routes.products:list_products:164 | Retrieved 0 products (limit: 100, offset: 0)
+2025-11-18 01:11:54 | INFO | app.routes.products:list_products:65 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:11:55 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a824d814506d4d30c58, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:11:55 | INFO | app.routes.products:list_products:134 | Found 892 products matching criteria
+2025-11-18 01:11:56 | INFO | app.routes.products:list_products:164 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 01:11:56 | DEBUG | app.routes.products:list_products:167 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 01:11:59 | INFO | app.routes.products:list_products:65 | Product list request - niche: Paint, platform: None, region: US, category: None, color: Blue, sales: None, query: None
+2025-11-18 01:11:59 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7a874d814506d4d30c59, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:12:00 | INFO | app.routes.products:list_products:134 | Found 75 products matching criteria
+2025-11-18 01:12:01 | INFO | app.routes.products:list_products:164 | Retrieved 75 products (limit: 100, offset: 0)
+2025-11-18 01:12:01 | DEBUG | app.routes.products:list_products:167 | Sample product fields: ['id', 'Product Type', 'Category', 'color', 'g:id', 'Product Name', 'Hype Score', 'Weekly Growth', 'Monthly growth', 'Sales', 'g:image_link', 'title', 'g:additional_image_link', 'niche', 'region']
+2025-11-18 01:15:29 | INFO | app.core.events:shutdown:128 | ✅ MongoDB connection closed gracefully
+2025-11-18 01:16:32 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-18 01:16:32 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-18 01:17:17 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-18 01:17:18 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created email unique index
+2025-11-18 01:17:18 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products full-text index
+2025-11-18 01:17:18 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products compound index
+2025-11-18 01:17:19 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products category index
+2025-11-18 01:17:19 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products color index
+2025-11-18 01:17:19 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products sales index
+2025-11-18 01:17:20 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products hype score sort index
+2025-11-18 01:17:20 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products niche + score index
+2025-11-18 01:17:21 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products region + score index
+2025-11-18 01:17:21 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products category + score index
+2025-11-18 01:17:21 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created saved_searches compound index
+2025-11-18 01:17:22 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created user_activity compound index
+2025-11-18 01:17:22 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created user_activity action index
+2025-11-18 01:17:22 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-18 01:17:41 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:17:41 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7bddcd8aa31e4c3ff2e2, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:17:42 | INFO | app.routes.products:list_products:169 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 01:17:47 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:17:47 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:17:47 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:18:00 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:18:00 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:18:00 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:18:10 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:18:10 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7bfacd8aa31e4c3ff2e3, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:18:11 | INFO | app.routes.products:list_products:169 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 01:18:23 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:18:23 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7c07cd8aa31e4c3ff2e4, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:18:24 | INFO | app.routes.products:list_products:169 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 01:18:26 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:18:26 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:18:26 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:18:26 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:18:27 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7c0acd8aa31e4c3ff2e5, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:18:28 | INFO | app.routes.products:list_products:169 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 01:23:30 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:23:31 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d3acd8aa31e4c3ff2e6, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:23:31 | INFO | app.routes.products:list_products:169 | Retrieved 100 products (limit: 100, offset: 0)
+2025-11-18 01:23:36 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:23:36 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d40cd8aa31e4c3ff2e7, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:23:37 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:23:37 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:23:37 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:23:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d41cd8aa31e4c3ff2e8, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:23:38 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:23:38 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:23:42 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:23:42 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:23:42 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:23:44 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:23:44 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:23:44 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:23:54 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:23:54 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d52cd8aa31e4c3ff2e9, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:23:55 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:23:55 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:23:59 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:23:59 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d57cd8aa31e4c3ff2ea, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:00 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:00 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:02 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:02 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d5acd8aa31e4c3ff2eb, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:03 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:03 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:04 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d5ccd8aa31e4c3ff2ec, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:05 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:05 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:05 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:05 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d5dcd8aa31e4c3ff2ed, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:06 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:06 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:07 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:07 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d5fcd8aa31e4c3ff2ee, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:08 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:08 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:11 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:11 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d63cd8aa31e4c3ff2ef, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:12 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:12 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:14 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d66cd8aa31e4c3ff2f0, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:15 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:15 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:21 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:21 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d6dcd8aa31e4c3ff2f1, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:22 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:22 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:24:22 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:24:22 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7d6ecd8aa31e4c3ff2f2, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:24:23 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:24:23 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:30:54 | INFO | app.core.events:startup:33 | 🔗 Attempting MongoDB connection (attempt 1/3)...
+2025-11-18 01:30:54 | DEBUG | app.core.events:startup:34 | Connecting to: ac-t2aox6m.dtq0ocn.mongodb.net/hypeon_mvp_db?retryWrites=true&w=majority
+2025-11-18 01:31:40 | INFO | app.core.events:startup:56 | ✅ MongoDB connection established to hypeon_mvp_db
+2025-11-18 01:31:40 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created email unique index
+2025-11-18 01:31:41 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products full-text index
+2025-11-18 01:31:41 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products compound index
+2025-11-18 01:31:42 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products category index
+2025-11-18 01:31:42 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products color index
+2025-11-18 01:31:43 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products sales index
+2025-11-18 01:31:43 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products hype score sort index
+2025-11-18 01:31:43 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products niche + score index
+2025-11-18 01:31:44 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products region + score index
+2025-11-18 01:31:44 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created products category + score index
+2025-11-18 01:31:45 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created saved_searches compound index
+2025-11-18 01:31:45 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created user_activity compound index
+2025-11-18 01:31:46 | DEBUG | app.core.events:_create_indexes:118 | ✓ Created user_activity action index
+2025-11-18 01:31:46 | INFO | app.core.events:startup:60 | ✅ Database indexes created successfully
+2025-11-18 01:32:26 | INFO | app.routes.auth:login:133 | Login attempt for email: test@hypeon.ai
+2025-11-18 01:32:27 | INFO | app.routes.auth:login:151 | Successful login for user: 6919df8b2d4380e6ad853156 (test@hypeon.ai)
+2025-11-18 01:32:28 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7f53fc7e8036a614aee0, User: 6919df8b2d4380e6ad853156, Action: login
+2025-11-18 01:32:28 | INFO | app.routes.auth:login:185 | Last login updated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:32:28 | INFO | app.routes.auth:login:189 | Tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:32:37 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:32:38 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7f5dfc7e8036a614aee1, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:32:38 | INFO | app.routes.products:list_products:169 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 01:32:47 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:32:48 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:32:48 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:32:48 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:32:48 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:32:48 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7f68fc7e8036a614aee2, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:32:49 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7f68fc7e8036a614aee3, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:32:49 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:32:49 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:32:49 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:32:49 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:35:07 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:35:07 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7ff3fc7e8036a614aee4, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:35:07 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:35:08 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:35:09 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:35:09 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7ff5fc7e8036a614aee5, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:35:09 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:35:10 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:35:14 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:35:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b7ffafc7e8036a614aee6, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:35:15 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:35:15 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:36:55 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:36:55 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b805ffc7e8036a614aee7, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:36:55 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:36:56 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:37:29 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:37:29 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8081fc7e8036a614aee8, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:37:30 | INFO | app.routes.products:list_products:169 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 01:37:33 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:37:33 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:37:33 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:37:33 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:37:34 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8085fc7e8036a614aee9, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:37:34 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:37:34 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:37:56 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:37:56 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:37:56 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b809cfc7e8036a614aeeb, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:37:56 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b809cfc7e8036a614aeea, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:37:57 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:37:57 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 60)
+2025-11-18 01:37:57 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:38:11 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:38:11 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:38:11 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:38:11 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:38:12 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:38:12 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80abfc7e8036a614aeec, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:38:12 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80acfc7e8036a614aeed, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:38:12 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:38:12 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:38:12 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:38:13 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:38:15 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:38:16 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80affc7e8036a614aeee, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:38:16 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 20)
+2025-11-18 01:39:03 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:39:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80dffc7e8036a614aeef, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:39:04 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 20)
+2025-11-18 01:39:04 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:39:04 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80e0fc7e8036a614aef0, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:39:05 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:39:05 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:39:20 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:39:21 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80f0fc7e8036a614aef1, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:39:21 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 40)
+2025-11-18 01:39:24 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:39:24 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b80f4fc7e8036a614aef2, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:39:25 | INFO | app.routes.products:list_products:169 | Retrieved 14 products (limit: 20, offset: 21720)
+2025-11-18 01:40:11 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:40:12 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8123fc7e8036a614aef3, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:40:12 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 80)
+2025-11-18 01:40:14 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:40:14 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8126fc7e8036a614aef4, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:40:15 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 100)
+2025-11-18 01:44:40 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:44:40 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:44:40 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8230fc7e8036a614aef5, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:44:40 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8230fc7e8036a614aef6, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:44:40 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:44:41 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:44:41 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:44:41 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:44:44 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:44:44 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8234fc7e8036a614aef7, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:44:45 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:44:45 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:49:48 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:49:48 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8364fc7e8036a614aef8, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:49:48 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:49:48 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:49:48 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8364fc7e8036a614aef9, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:49:49 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:49:49 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:49:49 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:49:51 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:49:51 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8367fc7e8036a614aefa, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:49:52 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:49:52 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:50:03 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:50:03 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8373fc7e8036a614aefb, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:50:04 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:50:04 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:02 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:51:02 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83aefc7e8036a614aefc, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:02 | INFO | app.routes.products:list_products:169 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 01:51:05 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:51:05 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:51:05 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:51:05 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:51:06 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83b1fc7e8036a614aefd, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:06 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:51:06 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:19 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:51:20 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83bffc7e8036a614aefe, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:20 | INFO | app.routes.products:list_products:169 | Retrieved 10 products (limit: 10, offset: 0)
+2025-11-18 01:51:22 | INFO | app.routes.auth:refresh_token_endpoint:315 | Refresh token request received
+2025-11-18 01:51:22 | INFO | app.routes.auth:refresh_token_endpoint:342 | Valid refresh token for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:51:22 | INFO | app.routes.auth:refresh_token_endpoint:359 | New tokens generated for user: 6919df8b2d4380e6ad853156
+2025-11-18 01:51:23 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:51:23 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83c3fc7e8036a614aeff, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:24 | INFO | app.routes.products:list_products:139 | Found 892 products matching criteria
+2025-11-18 01:51:24 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:28 | INFO | app.routes.products:list_products:67 | Product list request - niche: Wallpaper, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:51:28 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83c8fc7e8036a614af00, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:29 | INFO | app.routes.products:list_products:139 | Found 21734 products matching criteria
+2025-11-18 01:51:29 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:36 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: Pink, sales: None, query: None
+2025-11-18 01:51:36 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83d0fc7e8036a614af01, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:37 | INFO | app.routes.products:list_products:139 | Found 63 products matching criteria
+2025-11-18 01:51:37 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:45 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:51:46 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83d9fc7e8036a614af02, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:46 | INFO | app.routes.products:list_products:139 | Found 892 products matching criteria
+2025-11-18 01:51:46 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:50 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: Pink, sales: None, query: None
+2025-11-18 01:51:50 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83defc7e8036a614af03, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:51:50 | INFO | app.routes.products:list_products:139 | Found 63 products matching criteria
+2025-11-18 01:51:51 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:51:59 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: Pink, sales: None, query: None
+2025-11-18 01:51:59 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83e7fc7e8036a614af04, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:52:00 | INFO | app.routes.products:list_products:139 | Found 63 products matching criteria
+2025-11-18 01:52:00 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:52:04 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: Pink, sales: None, query: None
+2025-11-18 01:52:05 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83ecfc7e8036a614af05, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:52:05 | INFO | app.routes.products:list_products:169 | Retrieved 3 products (limit: 20, offset: 60)
+2025-11-18 01:52:12 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:52:12 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83f4fc7e8036a614af06, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:52:13 | INFO | app.routes.products:list_products:139 | Found 892 products matching criteria
+2025-11-18 01:52:13 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:52:20 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: Pink, sales: None, query: None
+2025-11-18 01:52:20 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b83fcfc7e8036a614af07, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:52:20 | INFO | app.routes.products:list_products:139 | Found 63 products matching criteria
+2025-11-18 01:52:21 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:52:24 | INFO | app.routes.products:list_products:67 | Product list request - niche: Paint, platform: None, region: US, category: None, color: None, sales: None, query: None
+2025-11-18 01:52:24 | INFO | app.utils.activity_tracker:log_user_activity:27 | User activity logged - ID: 691b8400fc7e8036a614af08, User: 6919df8b2d4380e6ad853156, Action: search
+2025-11-18 01:52:25 | INFO | app.routes.products:list_products:139 | Found 892 products matching criteria
+2025-11-18 01:52:25 | INFO | app.routes.products:list_products:169 | Retrieved 20 products (limit: 20, offset: 0)
+2025-11-18 01:53:25 | INFO | app.core.events:shutdown:134 | ✅ MongoDB connection closed gracefully

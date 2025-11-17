@@ -49,9 +49,26 @@ class ProductIn(BaseModel):
     growthMonthly: Optional[float] = None
     metadata: Optional[Any] = None
 
-class ProductOut(ProductIn):
+class ProductOut(BaseModel):
     """Schema for product data returned in responses."""
     id: str
+    title: Optional[str] = None
+    product_type: Optional[str] = Field(None, alias="Product Type")
+    category: Optional[str] = Field(None, alias="Category")
+    color: Optional[str] = None
+    g_id: Optional[str] = Field(None, alias="g:id")
+    product_name: Optional[str] = Field(None, alias="Product Name")
+    hype_score: Optional[float] = Field(None, alias="Hype Score")
+    weekly_growth: Optional[str] = Field(None, alias="Weekly Growth")
+    monthly_growth: Optional[str] = Field(None, alias="Monthly growth")
+    sales: Optional[str] = Field(None, alias="Sales")
+    g_image_link: Optional[str] = Field(None, alias="g:image_link")
+    g_additional_image_link: Optional[str] = Field(None, alias="g:additional_image_link")
+    niche: Optional[str] = None
+    region: Optional[str] = None
+    
+    class Config:
+        populate_by_name = True  # Allow both field name and alias
 
 # Saved Search
 class SavedSearchIn(BaseModel):
